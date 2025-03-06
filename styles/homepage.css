@@ -18,9 +18,16 @@ html {
     height: 100%;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #2b4373;
+}
+
 header h1 {
     background-color: #2b4373;
-    padding: 20px;
+    padding: 5rem;
     text-align: center;
     color: white;
     font-size: 2rem;
@@ -28,5 +35,136 @@ header h1 {
 }
 
 header h1 span {
+    color: yellow;
+}
+
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.profile-pic {
+    width: 240px;
+    height: 240px;
+    border-radius: 30%;
+    padding: 2rem;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #0f0f0f;
+    padding: 10px 0;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 10px 10px;
+}
+
+nav a:hover {
+    background-color: #444;
+    color: #ddd;
+    text-decoration: underline;
+}
+
+.menu-links {
+    margin-top: 10px;
+}
+
+.menu-links a {
+    text-decoration: none;
+    margin: 0 10 px;
+}
+
+
+main {
+    max-width: auto;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+}
+
+main ul li {
+    margin: 20px;
+}
+
+
+.course-work,
+.country-card,
+.certificate-info {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.course-work h2,
+.country-card h2,
+.certificate-info h2 {
+    background-color: #2b4373;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.course-work {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.country-card {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.certificate-info {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    text-align: center;
+}
+
+.country-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+footer {
+    background-color: #2b4373;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.3rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+
+footer #lastModified {
+    font-size: 1.2rem;
     color: yellow;
 }
