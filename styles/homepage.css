@@ -55,6 +55,44 @@ header h1 span {
     padding: 2rem;
 }
 
+.menu-btn {
+    font-size: 72px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        margin-right: 50px;
+
+    }
+
+    .menu-links {
+        display: none;
+        flex-direction: column;
+        background: #0f0f0f;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .menu-links.active {
+        display: flex;
+    }
+}
+
+
+@media (min-width: 769px) {
+    .menu-links {
+        display: flex !important;
+        /* Asegura que el menú se muestre */
+    }
+}
 
 nav {
     display: flex;
