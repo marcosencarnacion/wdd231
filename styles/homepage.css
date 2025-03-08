@@ -96,12 +96,11 @@ nav a:hover {
 
 .menu-links a {
     text-decoration: none;
-    margin: 0 10 px;
+    margin: 10px;
 }
 
 
 main {
-    max-width: auto;
     margin: 20px auto;
     padding: 20px;
 }
