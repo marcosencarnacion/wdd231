@@ -169,15 +169,3 @@ footer #lastModified {
     color: yellow;
 }
 
-.close-btn {
-    display: none; /* Hide by default */
-    position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    z-index: 1001; /* Ensure it's above the menu */
-}
