@@ -151,7 +151,53 @@ main ul li {
     margin-top: 10px;
 }
 
+figure {
+    text-align: center;
+}
 
+figcaption {
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+}
+
+.course-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.completed {
+    background-color: #d4edda;
+    border-left: 5px solid green;
+}
+
+#course-filters {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#course-filters button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #2b4373;
+    transition: background-color 0.3s ease;
+}
+
+#course-filters button:hover {
+    background-color: #1a2c4f;
+}
 
 
 footer {

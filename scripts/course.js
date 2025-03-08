@@ -78,10 +78,13 @@ const courses = [
     }
 ]
 
-function displayCourses(filteredCourses) {
-    const courseList = document.getElementById('course-list');
-    courseList.innerHTML = "";
+const courseList = document.getElementById('course-list');
+const totalCreditsElement = document.getElementById("total-credits");
 
+
+
+function displayCourses(filteredCourses) {
+    courseList.innerHTML = "";
     filteredCourses.forEach(course => {
         const courseCard = document.createElement("div");
         courseCard.classList.add("course-card");
@@ -92,10 +95,6 @@ function displayCourses(filteredCourses) {
 
         courseCard.innerHTML = `
             <h3>${course.subject} ${course.number}: ${course.title}</h3>
-            <p><strong>Credits:</strong> ${course.credits}</p>
-            <p><strong>Certificate:</strong> ${course.certificate}</p>
-            <p><strong>Description:</strong> ${course.description}</p>
-            <p><strong>Technology:</strong> ${course.technology.join(", ")}</>
         `;
 
         courseList.appendChild(courseCard);
@@ -145,13 +144,6 @@ menuBtn.addEventListener("click", () => {
 });
 
 closeBtn.addEventListener("click", () => {
-    menu.classList.remove("active");
-    overlay.classList.remove("active");
-    menuBtn.textContent = "☰";
-});
-
-
-overlay.addEventListener("click", () => {
     menu.classList.remove("active");
     overlay.classList.remove("active");
     menuBtn.textContent = "☰";
