@@ -109,6 +109,19 @@ function updateTotalCredits(filteredCourses) {
     document.getElementById("total-credits").textContent = totalCredits;
 }
 
+document.getElementById("all-courses").addEventListener("click", () => {
+    displayCourses(courses);
+});
+
+document.getElementById("wdd-courses").addEventListener("click", () => {
+    const wddCourses = courses.filter(course => course.subject === "WDD");
+    displayCourses(wddCourses);
+});
+
+document.getElementById("cse-courses").addEventListener("click", () => {
+    const cseCourses = courses.filter(course => course.subject === "CSE");
+    displayCourses(cseCourses);
+});
 
 
 
