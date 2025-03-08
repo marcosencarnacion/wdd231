@@ -129,9 +129,11 @@ document.getElementById('lastModified').textContent = 'Last modified: ' + docume
 const menuBtn = document.getElementById("menu-toggle");
 const menu = document.querySelector(".menu-links");
 const closeBtn = document.getElementById("close-menu");
+const overlay = document.querySelector(".overlay");
 
 menuBtn.addEventListener("click", () => {
     menu.classList.toggle("active");
+    overlay.classList.toggle("active");
 
     if (menu.classList.contains("active")) {
         menuBtn.textContent = "✖";
@@ -143,6 +145,7 @@ menuBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
     menu.classList.remove("active");
     menuBtn.textContent = "☰";
+    overlay.classList.remove("active");
 });
 
 
