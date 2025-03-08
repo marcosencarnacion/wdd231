@@ -123,9 +123,7 @@ document.getElementById("cse-courses").addEventListener("click", () => {
 });
 
 
-
 document.getElementById('currentyear').textContent = new Date().getFullYear();
-
 document.getElementById('lastModified').textContent = 'Last modified: ' + document.lastModified;
 
 const menuBtn = document.getElementById("menu-toggle");
