@@ -170,6 +170,12 @@ figcaption {
     background-color: #f9f9f9;
 }
 
+#course-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+}
+
 .completed {
     background-color: #d4edda;
     border-left: 5px solid green;
