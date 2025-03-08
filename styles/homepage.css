@@ -56,49 +56,12 @@ header h1 span {
 }
 
 .menu-btn {
-    font-size: 48px;
+    display: none;
+    font-size: 36px;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
-    display: none;
-
-}
-
-@media (max-width: 768px) {
-    .menu-btn {
-        display: block;
-        font-size: 48px;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        z-index: 1001;
-    }
-
-    .menu-links {
-        display: flex;
-        flex-direction: column;
-        background: #0f0f0f;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .menu-links.active {
-        display: flex;
-    }
-}
-
-
-@media (min-width: 769px) {
-    .menu-links {
-        display: flex !important;
-        position: s;
-    }
 }
 
 nav {
@@ -123,8 +86,9 @@ nav a:hover {
 }
 
 .menu-links {
-    display: none;
+    display: flex !important;
     margin-top: 10px;
+    position: s;
 }
 
 .menu-links a {
@@ -171,16 +135,6 @@ main ul li {
     border-radius: 10px 10px 0 0;
 }
 
-.course-work {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.country-card {
-    grid-column: 2;
-    grid-row: 1;
-}
-
 .certificate-info {
     grid-column: 1 / span 2;
     grid-row: 2;
@@ -213,4 +167,17 @@ footer p {
 footer #lastModified {
     font-size: 1.2rem;
     color: yellow;
+}
+
+.close-btn {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above the menu */
 }
