@@ -56,7 +56,7 @@ header h1 span {
 }
 
 .menu-btn {
-    font-size: 72px;
+    font-size: 48px;
     background: none;
     border: none;
     color: white;
@@ -68,12 +68,19 @@ header h1 span {
 @media (max-width: 768px) {
     .menu-btn {
         display: block;
-        margin-right: 50px;
-
+        font-size: 48px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        z-index: 1001;
     }
 
     .menu-links {
-        display: none;
+        display: flex;
         flex-direction: column;
         background: #0f0f0f;
         width: 100%;
@@ -90,7 +97,7 @@ header h1 span {
 @media (min-width: 769px) {
     .menu-links {
         display: flex !important;
-        /* Asegura que el menú se muestre */
+        position: s;
     }
 }
 
@@ -116,6 +123,7 @@ nav a:hover {
 }
 
 .menu-links {
+    display: none;
     margin-top: 10px;
 }
 

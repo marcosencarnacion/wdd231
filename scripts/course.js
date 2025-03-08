@@ -1,8 +1,14 @@
 const menuBtn = document.getElementById("menu-toggle");
-const menu = document.querySelector(".menu-links")
+const menu = document.querySelector(".menu-links");
 
 menuBtn.addEventListener("click", () => {
     menu.classList.toggle("active");
+
+    if (menu.classList.contains("active")) {
+        menuBtn.textContent = "✖";
+    } else {
+        menuBtn.textContent = "☰"; 
+    }
 });
 
 
