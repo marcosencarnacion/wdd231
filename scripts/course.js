@@ -132,7 +132,6 @@ const closeBtn = document.getElementById("close-menu");
 
 menuBtn.addEventListener("click", () => {
     menu.classList.toggle("active");
-    overlay.classList.toggle("active");
 
     if (menu.classList.contains("active")) {
         menuBtn.textContent = "✖";
@@ -143,7 +142,6 @@ menuBtn.addEventListener("click", () => {
 
 closeBtn.addEventListener("click", () => {
     menu.classList.remove("active");
-    overlay.classList.remove("active");
     menuBtn.textContent = "☰";
 });
 
