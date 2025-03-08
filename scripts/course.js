@@ -104,6 +104,10 @@ function displayCourses(filteredCourses) {
     updateTotalCredits(filteredCourses);
 }
 
+function updateTotalCredits(filteredCourses) {
+    const totalCredits = filteredCourses.reduce((sum, course) => sum + course.credits, 0);
+    document.getElementById("total-credits").textContent = totalCredits;
+}
 
 
 
