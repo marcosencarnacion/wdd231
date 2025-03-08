@@ -9,7 +9,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -22,7 +22,7 @@ const courses = [
             'HTML',
             'CSS'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'CSE',
@@ -34,7 +34,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'CSE',
@@ -46,7 +46,7 @@ const courses = [
         technology: [
             'C#'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -60,7 +60,7 @@ const courses = [
             'CSS',
             'JavaScript'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -78,11 +78,35 @@ const courses = [
     }
 ]
 
-const courseList = document.getElementById('course-list');
-const totalCredits = document.getElementById('total-credits');
-const allCoursesBtn = document.getElementById('all-courses');
-const wddCoursesBtn = document.getElementById('wdd-courses');
-const cseCoursesBtn = document.getElementById('cse-courses');
+function displayCourses(filteredCourses) {
+    const courseList = document.getElementById('course-list');
+    courseList.innerHTML = "";
+
+    filteredCourses.forEach(course => {
+        const courseCard = document.createElement("div");
+        courseCard.classList.add("course-card");
+
+        if (course.completed) {
+            courseCard.classList.add("completed");
+        }
+
+        courseCard.innerHTML = `
+            <h3>${course.subject} ${course.number}: ${course.title}</h3>
+            <p><strong>Credits:</strong> ${course.credits}</p>
+            <p><strong>Certificate:</strong> ${course.certificate}</p>
+            <p><strong>Description:</strong> ${course.description}</p>
+            <p><strong>Technology:</strong> ${course.technology.join(", ")}</>
+        `;
+
+        courseList.appendChild(courseCard);
+    });
+
+    updateTotalCredits(filteredCourses);
+}
+
+
+
+
 
 document.getElementById('currentyear').textContent = new Date().getFullYear();
 
