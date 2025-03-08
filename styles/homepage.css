@@ -64,6 +64,10 @@ header h1 span {
     cursor: pointer;
 }
 
+.close-btn {
+    display: none;
+}
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -148,6 +152,8 @@ main ul li {
 }
 
 
+
+
 footer {
     background-color: #2b4373;
     color: white;
@@ -168,4 +174,3 @@ footer #lastModified {
     font-size: 1.2rem;
     color: yellow;
 }
-
