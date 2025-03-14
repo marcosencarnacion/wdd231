@@ -1,0 +1,74 @@
+[
+    {
+        "name": "PICAD SERVICIOS LTDA",
+        "address": "Calle 137C 103C - 58, 111131 Bogotá, Colombia",
+        "phone": "321 2321049",
+        "website": "https://www.picadservicios.com/",
+        "membership": "Gold",
+        "image": "images/picad-image.webp"
+    },
+    {
+        "name": "iSy TEk SAS",
+        "address": "Carrera 58 119A-49 Of 1503, 111111 Bogotá, Colombia",
+        "phone": "316 4727396",
+        "website": "https://www.isytek.co/",
+        "membership": "Silver",
+        "image": "images/isy-tek-image.webp"
+    },
+    {
+        "name": "Fantiplas LTDA",
+        "address": "Transversal 49 #5 g - 50, 57 Bogotá, Colombia",
+        "phone": "6014143878",
+        "website": "https://www.fantiplas.com/",
+        "membership": "Bronze",
+        "image": "images/fantiplas.webp"
+    },
+    {
+        "name": "ABC RENT A CAR",
+        "address": "Calle 93 #49 - 14, Bogotá, Colombia",
+        "phone": "311 2272726",
+        "website": "https://abcrentacar.com.co/",
+        "membership": "Gold",
+        "image": "images/abc-rent-a-car.webp"
+    },
+    {
+        "name": "Casa De Cambio Punto Dollar Money Exchange C.C Salitre Plaza",
+        "address": "Carrera 68b #24-39 Local 287, 110931 Bogotá, Colombia",
+        "phone": "(601) 4673055",
+        "website": "https://www.puntodollar.com/casa-de-cambio-salitre-plaza-bogota/",
+        "membership": "Bronze",
+        "image": "images/money-exchange-image.webp"
+    },
+    {
+        "name": "JARDIN INFANTIL PASOS Y COMPASES KINDER GARDEN",
+        "address": "Cra 78 #182 - 60, Bogotá, Colombia",
+        "phone": "301 3709842",
+        "website": "https://pasosycompases.edu.co/",
+        "membership": "Gold",
+        "image": "images/jardin-pasos-y-compases.webp"
+    },
+    {
+        "name": "Eventos Bella Suiza",
+        "address": "Carrera 54 #123a-24, Bogotá, Colombia",
+        "phone": "302 3396390",
+        "website": "https://eventosbellasuiza.co/",
+        "membership": "Gold",
+        "image": "images/eventos-bella-suiza.webp"
+    },
+    {
+        "name": "Correcol S.A. Corredores de Seguros",
+        "address": "11-36 Calle 93a, Bogotá D.C. 110221, Bogotá, Colombia",
+        "phone": "+571 530 0053",
+        "website": "https://www.correcol.com/index.php/es/",
+        "membership": "Gold",
+        "image": "images/correcol.jpg"
+    },
+    {
+        "name": "AllTour S.A.S",
+        "address": "Calle 166 # 8F-93 Piso 3°, Bogotá 110911, Cundinamarca, Colombia",
+        "phone": "+57 311 532 13 77",
+        "website": "https://alltoursas.com/",
+        "membership": "Bronze",
+        "image": "images/all-tour.webp"
+    }
+]
