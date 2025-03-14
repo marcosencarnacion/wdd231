@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isGridView = true;
 
     // Fetch JSON File
-    fetch("chamber/data/businesses.json")
+    fetch("businesses.json")
         .then(response => response.json())
         .then(data => {
             localStorage.setItem("businesses", JSON.stringify(data));
