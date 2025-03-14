@@ -91,3 +91,52 @@ nav a {
     justify-content: space-between;
     gap: 6rem;
 }
+
+#directory {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.business-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.business-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.business-card a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+/* LIST VIEW */
+.list-view {
+    display: block !important;
+}
+
+.list-view .business-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    text-align: left;
+}
+
+.list-view .business-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10%;
+}
