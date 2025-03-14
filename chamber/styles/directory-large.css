@@ -94,7 +94,7 @@ nav a {
 
 #directory {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
 }
@@ -108,10 +108,10 @@ nav a {
 }
 
 .business-card img {
-    width: 100px;
-    height: 100px;
+    width: 256px;
+    height: 256px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 25%;
 }
 
 .business-card a {
