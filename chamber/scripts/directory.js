@@ -4,6 +4,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const listViewBtn = document.querySelector("#listViewBtn");
     let isGridView = true;
 
+    const menuToggle = document.getElementById("menu-toggle");
+    const closeMenu = document.getElementById("close-menu");
+    const menuLinks = document.querySelector(".menu-links");
+
+    menuToggle.addEventListener("click", () => {
+        menuLinks.classList.toggle("active");
+
+        // Change the icon based on menu state
+        if (menuLinks.classList.contains("active")) {
+            menuToggle.textContent = "✖";
+        } else {
+            menuToggle.textContent = "☰";
+        }
+    });
+
+    closeMenu.addEventListener("click", () => {
+        menuLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+    });
+
     // Fetch JSON File with Async function
     async function fetchMembers() {
         try {
