@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const directoryContainer = document.querySelector("#directory");
-    const toggleButton = document.querySelector("#toggleView");
+    const gridViewBtn = document.querySelector("#gridViewBtn");
+    const listViewBtn = document.querySelector("#listViewBtn");
     let isGridView = true;
 
     // Fetch JSON File with Async function
@@ -37,18 +38,23 @@ document.addEventListener("DOMContentLoaded", () => {
             directoryContainer.appendChild(card);
         });
 
+        gridViewBtn.classList.toggle("active", isGridView);
+        listViewBtn.classList.toggle("active", !isGridView);
+
     }
+
+    gridViewBtn.addEventListener("click", () => {
+        isGridView = true;
+        displayBusinesses(JSON.parse(localStorage.getItem("members")));
+    });
+
+    listViewBtn.addEventListener("click", () => {
+        isGridView = false;
+        displayBusinesses(JSON.parse(localStorage.getItem("members")));
+    })
 
     fetchMembers();
 
-    // Event listener to toggle view
-    toggleButton.addEventListener("click", () => {
-        isGridView = !isGridView;
-        const storedData = JSON.parse(localStorage.getItem("businesses"));
-        if (storedData) {
-            displayBusinesses(storedData);
-        }
-    });
 });
 
 document.getElementById('currentyear').textContent = new Date().getFullYear();
