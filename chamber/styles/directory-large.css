@@ -103,6 +103,35 @@ nav a:hover {
     padding: 20px;
 }
 
+/* Toggle Button Style */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.toggle-btn {
+    background-color: #2b4373;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.toggle-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.toggle-btn.active {
+    background-color: #28a745;
+}
+
+
 .business-card {
     background: white;
     padding: 15px;
