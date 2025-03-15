@@ -78,8 +78,13 @@ main h1 {
     border: none;
     color: white;
     cursor: pointer;
-    margin-left: 10rem;
+    margin-left: 5rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
+
 
 .close-btn {
     display: none;
@@ -98,6 +103,13 @@ nav a {
     text-decoration: none;
     font-size: 1.3rem;
     padding: 10px 10px;
+}
+
+.menu-links a.active-page {
+    background-color: #1a365d;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
 }
 
 nav a:hover {
@@ -335,5 +347,70 @@ footer {
 @media (max-width: 480px) {
     #directory {
         grid-template-columns: 1fr;
+    }
+}
+
+.list-view .business-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    text-align: left;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+
+}
+
+.list-view .business-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    object-fit: cover;
+}
+
+.list-view .business-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #2b4373;
+}
+
+.list-view .business-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    color: #555;
+}
+
+.list-view .business-card a {
+    font-size: 0.9rem;
+    color: #2b4373;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .list-view .business-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+    }
+
+    .list-view .business-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+
+    }
+
+    .list-view .business-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .list-view .business-card p {
+        font-size: 0.85rem;
     }
 }
