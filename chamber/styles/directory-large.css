@@ -31,7 +31,7 @@ header h2 {
     background-color: #2b4373;
     padding: 0.1rem;
     text-align: center;
-    color: white;
+    color: #F1F1F1;
     font-size: 2rem;
     line-height: 1.5;
 }
@@ -85,6 +85,10 @@ nav a {
     padding: 10px 10px;
 }
 
+nav a:hover {
+    color: #FFD700;
+}
+
 .menu-links {
     display: flex !important;
     align-items: center;
@@ -118,11 +122,11 @@ nav a {
     display: block;
     margin-top: 10px;
     text-decoration: none;
-    color: #007BFF;
+    color: #2b4373;
     font-weight: bold;
 }
 
-/* LIST VIEW */
+/* List View */
 .list-view {
     display: block !important;
 }
@@ -139,4 +143,52 @@ nav a {
     width: 60px;
     height: 60px;
     border-radius: 10%;
+}
+
+/* Footer Style */
+footer {
+    background-color: #2b4373;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    padding: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.footer-center {
+    width: 30%;
+    text-align: center;
+}
+
+.footer-center a img {
+    width: 45px;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-center a img:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-right,
+    .footer-center {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }

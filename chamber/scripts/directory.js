@@ -3,13 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.querySelector("#toggleView");
     let isGridView = true;
 
-    // Fetch JSON File
-    fetch("businesses.json")
-        .then(response => response.json())
-        .then(data => {
-            localStorage.setItem("businesses", JSON.stringify(data));
+    // Fetch JSON File with Async function
+    async function fetchMembers() {
+        try {
+            const response = await fetch("members.json");
+            const data = await response.json();
+            localStorage.setItem("members", JSON.stringify(data));
             displayBusinesses(data);
-        });
+        } catch (error) {
+            console.error("Error fetching members:", error);
+        }
+
+    }
 
     // Function to display businesses
     function displayBusinesses(businesses) {
@@ -34,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    fetchMembers();
+
     // Event listener to toggle view
     toggleButton.addEventListener("click", () => {
         isGridView = !isGridView;
@@ -43,3 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+document.getElementById('currentyear').textContent = new Date().getFullYear();
+document.getElementById('lastModified').textContent = 'Last modified: ' + document.lastModified;
