@@ -23,7 +23,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" type="image/x-icon" href="skyline.ico">
-    <script src="scripts/directory.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/weather.js" defer></script>
 </head>
 
 <body>
@@ -49,6 +50,7 @@
         <section class="hero">
             <img src="images/hero-chamber.jpg" alt="Bogotá Skyline" loading="lazy">
             <div class=" hero-content">
+                <p>Welcome to the Bogotá Chamber of Commerce</p>
                 <a href="#" class="btn">Join Us</a>
             </div>
         </section>
@@ -60,20 +62,43 @@
         <!-- Events, Weather, Forecast -->
         <section class="info-sections">
             <div class="events">
-                <h3>Events</h3>
+                <h3>Upcoming Events</h3>
+                <ul>
+                    <li><strong>April 10, 2025 | 9:00 AM:</strong> Bogotá Business Networking Summit – JW Marriott Hotel
+                        Bogotá</li>
+                    <li><strong>April 18, 2025 | 2:00 PM:</strong> Digital Marketing Workshop – Cámara de Comercio de
+                        Bogotá</li>
+                    <li><strong>April 25, 2025 | 10:00 AM:</strong> Sustainable Business Expo 2025 – Corferias Bogotá
+                    </li>
+                    <li><strong>May 5-7, 2025 | 8:30 AM:</strong> Entrepreneurship Bootcamp – Universidad de los Andes
+                    </li>
+                    <li><strong>May 15, 2025 | 1:00 PM:</strong> Women in Business Leadership Forum – Hilton Bogotá
+                        Corferias</li>
+                </ul>
             </div>
 
-            <div class="Weather">
-                <h3>Weather</h3>
+            <div class="weather">
+                <div class="weather-header">
+                    <img id="graphic" src="" alt="">
+                    <h3>Current Weather</h3>
+                </div>
+
+                <div class="weather-info">
+                    <p><strong>City:</strong> <span id="city"></span></p>
+                    <p><strong>Description:</strong> <span id="description"></span></p>
+                    <p><strong>Temperature:</strong> <span id="temperature">--</span>°C</p>
+                    <p><strong>High:</strong> <span id="high-temp">--</span>°C</p>
+                    <p><strong>Low:</strong> <span id="low-temp">--</span>°C</p>
+                    <p><strong>Humidity:</strong> <span id="humidity">--</span>%</p>
+                    <p><strong>Sunrise:</strong> <span id="sunrise">--</span></p>
+                    <p><strong>Sunset:</strong> <span id="sunset">--</span></p>
+                </div>
             </div>
 
             <div class="forecast">
                 <h3>Forecast</h3>
             </div>
         </section>
-
-
-
     </main>
 
 

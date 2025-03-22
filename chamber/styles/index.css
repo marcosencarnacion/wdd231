@@ -344,6 +344,8 @@ footer {
     position: absolute;
     bottom: 20px;
     right: 20px;
+    color: white;
+    font-weight: bold;
 }
 
 .btn {
@@ -360,4 +362,69 @@ footer {
 
 .btn:hover {
     background-color: #1a365d;
+}
+
+.events {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: lightgrey;
+    border: 1px solid #5d6f67;
+    margin-bottom: 5px;
+}
+
+.events ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.events li {
+    background: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-left: 4px solid #007bff;
+    border-radius: 3px;
+}
+
+.events h3 {
+    background: #2b4373;
+    color: white;
+    text-align: left;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.weather {
+    border: 1px solid #5d6f67;
+    background-color: lightgrey;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 2;
+}
+
+.weather h3 {
+    color: white;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.weather #description {
+    text-transform: capitalize;
+    margin: .3rem 0;
+}
+
+.weather #temperature {
+    font-size: 2rem;
+    margin: .3rem 0;
+}
+
+.weather-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #2b4373;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
 }
