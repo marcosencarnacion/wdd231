@@ -431,7 +431,7 @@ footer {
     border-radius: 3px;
 }
 
-.events h3 {
+.events h2 {
     background: #2b4373;
     color: white;
     text-align: left;
@@ -449,10 +449,11 @@ footer {
     margin-bottom: 5px;
 }
 
-.weather h3 {
+.weather h2 {
     color: white;
     text-align: left;
     margin-left: 5px;
+    text-align: center;
 }
 
 .weather #description {
@@ -480,17 +481,17 @@ footer {
     background-color: lightgrey;
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     line-height: 2;
     margin-bottom: 5px;
 }
 
-.forecast h3 {
+.forecast h2 {
     background-color: #2b4373;
     color: white;
-    text-align: left;
     margin-left: 5px;
-    padding: 5px;
+    padding: 1px;
+    text-align: center;
 }
 
 .forecast-day {
@@ -540,7 +541,7 @@ footer {
 
     }
 
-    .events h3,
+    .events h2,
     .weather h3,
     .forecast h3 {
         font-size: 1.2rem;
@@ -553,6 +554,7 @@ footer {
     .weather,
     .forecast {
         padding: 10px;
+        text-align: center;
     }
 
     .events h3,

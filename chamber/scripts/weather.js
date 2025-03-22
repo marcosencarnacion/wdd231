@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const myLong = "-74.13294775376075"
 
     //Construct a Full Path Using Template Literals
-    const myURL = `//api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&units=metric&appid=${myKey}`
+    const myURL = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&units=metric&appid=${myKey}`
 
     // 5-day /3 hour Forecast URL
     const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&units=metric&appid=${myKey}`;
