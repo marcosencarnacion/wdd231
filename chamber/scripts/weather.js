@@ -42,14 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function displayResults(data) {
         myCity.innerHTML = data.name
         myDescription.innerHTML = data.weather[0].description
-        myTemperature.innerHTML = data.main.temp
+        myTemperature.innerHTML = Math.round(data.main.temp)
 
         const iconsrc = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
         myGraphic.setAttribute('SRC', iconsrc)
         myGraphic.setAttribute('alt', data.weather[0].description)
 
-        myHighTemperature.innerHTML = data.main.temp_max
-        myLowTemperature.innerHTML = data.main.temp_min
+        myHighTemperature.innerHTML = Math.round(data.main.temp_max)
+        myLowTemperature.innerHTML = Math.round(data.main.temp_min)
         myHumidity.innerHTML = data.main.humidity
 
         const sunriseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true });
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Display day, temperature, and icon
             dayDiv.innerHTML = `
-                <p><strong>${day}:</strong> <img src="${iconSrc}" alt="Weather icon"> ${dayData.tempMax.toFixed(1)}°C</p>
+                <p><strong>${day}:</strong> <img src="${iconSrc}" alt="Weather icon"> ${Math.round(dayData.tempMax)}°C</p>
             `;
 
             forecastContainer.appendChild(dayDiv);
