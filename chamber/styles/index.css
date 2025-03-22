@@ -365,7 +365,7 @@ footer {
     background-color: #1a365d;
 }
 
-.home h2 {
+.home h1 {
     padding: 12px;
 }
 
@@ -483,4 +483,8 @@ footer {
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.spotlights h1 {
+    padding: 12px;
 }
