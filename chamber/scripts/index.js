@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         randomSpotlights.forEach(member => {
             const spotlightDiv = document.createElement("div");
             spotlightDiv.classList.add("spotlight");
-            
+
             spotlightDiv.innerHTML = `
             <div class="spotlight-card">
                 <img src="${member.image}" alt="${member.name} Logo">
