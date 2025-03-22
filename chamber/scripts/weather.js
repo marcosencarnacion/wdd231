@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const myURL = `//api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&units=metric&appid=${myKey}`
 
     // 5-day /3 hour Forecast URL
-    const forecastURL = `https:api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&units=metric&appid=${myKey}`
+    const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&units=metric&appid=${myKey}`;
 
     // Try to Grab the Current Weather Data
     async function apiFetch() {

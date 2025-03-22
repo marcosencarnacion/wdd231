@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fetchSpotlights();
-    fetchMembers();
 
 });
 
