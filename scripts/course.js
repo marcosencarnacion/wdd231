@@ -82,7 +82,43 @@ const courseList = document.getElementById('course-list');
 const totalCreditsElement = document.getElementById("total-credits");
 
 
+const courseDetailsModal = document.getElementById("course-details");
 
+//Function to display course details in the modal
+function displayCourseDetails(course) {
+    // Populate the modal with course information
+    courseDetailsModal.innerHTML = `
+        <div class="modal-header">
+            <h2>${course.subject} ${course.number}</h2>
+            <button id="closeModal">❌</button>
+        </div>
+        <div class="course-details">
+            <h3>${course.title}</h3>
+            <p><strong>Credits:</strong> ${course.credits}<p>
+            <p><strong>Certificate:</strong> ${course.certificate}</P>
+            <P>${course.description}</p>
+            <p><strong>Technologies:</strong> ${course.technology.join(', ')}<p>
+        </div>
+        
+    `;
+
+    // Show the Modal
+    courseDetailsModal.showModal();
+
+    // Add event listener to close the modal when clicking the close button
+    document.getElementById("closeModal").addEventListener("click", () => {
+        courseDetailsModal.close();
+    });
+
+    // Close the modal when clicking outside of it
+    courseDetailsModal.addEventListener("click", (event) => {
+        if (even.target === courseDetailsModal) {
+            courseDetailsModal.close();
+        }
+    });
+}
+
+// Update displayCourses function to make course cards clickable
 function displayCourses(filteredCourses) {
     courseList.innerHTML = "";
     filteredCourses.forEach(course => {
@@ -93,15 +129,20 @@ function displayCourses(filteredCourses) {
             courseCard.classList.add("completed");
         }
 
+        // Set up course details
         courseCard.innerHTML = `
             <h3>${course.subject} ${course.number}: ${course.title}</h3>
         `;
+
+        // Make the entire card clickable to open the modal
+        courseCard.addEventListener("click", () => displayCourseDetails(course));
 
         courseList.appendChild(courseCard);
     });
 
     updateTotalCredits(filteredCourses);
 }
+
 
 function updateTotalCredits(filteredCourses) {
     const totalCredits = filteredCourses.reduce((sum, course) => sum + course.credits, 0);
