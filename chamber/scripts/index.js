@@ -86,6 +86,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetchSpotlights();
 
+
+    // Constant variables
+    const openButton1 = document.querySelector("#openButton1");
+    const dialogBox1 = document.querySelector("#dialogBox1");
+    const closeButton1 = document.querySelector("#closeButton1");
+
+    const openButton2 = document.querySelector("#openButton2");
+    const dialogBox2 = document.querySelector("#dialogBox2");
+    const closeButton2 = document.querySelector("#closeButton2");
+
+    const openButton3 = document.querySelector("#openButton3");
+    const dialogBox3 = document.querySelector("#dialogBox3");
+    const closeButton3 = document.querySelector("#closeButton3");
+
+    const openButton4 = document.querySelector("#openButton4");
+    const dialogBox4 = document.querySelector("#dialogBox4");
+    const closeButton4 = document.querySelector("#closeButton4");
+
+    // "Show the dialog" button opens the dialog modally
+    openButton1.addEventListener("click", () => {
+        dialogBox1.showModal();
+    });
+
+    openButton2.addEventListener("click", () => {
+        dialogBox2.showModal();
+    });
+
+    openButton3.addEventListener("click", () => {
+        dialogBox3.showModal();
+    });
+
+    openButton4.addEventListener("click", () => {
+        dialogBox4.showModal();
+    });
+
+
+    // "Close" button closes the dialog
+    closeButton1.addEventListener("click", () => {
+        dialogBox1.close();
+    });
+
+    closeButton2.addEventListener("click", () => {
+        dialogBox2.close();
+    });
+
+    closeButton3.addEventListener("click", () => {
+        dialogBox3.close();
+    });
+
+    closeButton4.addEventListener("click", () => {
+        dialogBox4.close();
+    });
+
+
 });
 
 document.getElementById('currentyear').textContent = new Date().getFullYear();

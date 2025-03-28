@@ -24,7 +24,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" type="image/x-icon" href="skyline.ico">
     <script src="scripts/index.js" defer></script>
-    <script src="scripts/weather.js" defer></script>
 </head>
 
 <body>
@@ -47,24 +46,82 @@
     </header>
 
     <main>
-        <section class="membership-container">
-            <div class="membership-card" id="np-card">
-                <h3>Non Profit Membership Level</h3>
-                <button onclick="openModal('np-modal')">Learn More</button>
-            </div>
-            <div class="membership-card" id="bronze-card">
-                <h3>Bronze Membership Level</h3>
-                <button onclick="openModal('bronze-modal')">Learn More</button>
-            </div>
-            <div class="membership-card" id="silver-card">
-                <h3>Silver Membership Level</h3>
-                <button onclick="openModal('silver-modal')">Learn More</button>
-            </div>
-            <div class="membership-card" id="gold-card">
-                <h3>Gold Membership Level</h3>
-                <button onclick="openModal('gold-modal')">Learn More</button>
-            </div>
-        </section>
+
+        <div class="join">
+            <h1>Join</h1>
+            <div class="underline"></div>
+
+            <!-- Modals -->
+            <section class="membership-container">
+                <h2>Membership Levels</h2>
+                <div class="membership-card" id="np-card">
+                    <h3>Non Profit Membership Level</h3>
+                    <button id="openButton1">Learn More</button>
+                    <dialog id="dialogBox1">
+                        <h2>Non Profit Membership</h2>
+                        <p><strong>Benefits include:</strong></p>
+                        <ul>
+                            <li>You'll get a nice plaque with the mayor's stamp on it.</li>
+                            <li>You get to ride on a float on Saint Patty's Day.</li>
+                        </ul>
+                        <p><strong>Cost:</strong> Free</p>
+                        <button id="closeButton1" class="close-button">Close</button>
+                    </dialog>
+                </div>
+
+                <div class="membership-card" id="bronze-card">
+                    <h3>Bronze Membership Level</h3>
+                    <button id="openButton2">Learn More</button>
+                    <dialog id="dialogBox2">
+                        <h2>Bronze Membership</h2>
+                        <p><strong>Benefits include:</strong></p>
+                        <ul>
+                            <li>Discount tickets to all Bowl Games</li>
+                            <li>You'll get a nice plaque with the mayor's stampt on it</li>
+                            <li>You get to ride on a float Saint Patty's Day</li>
+                        </ul>
+                        <p><strong>Cost:</strong> $10 annual</p>
+                        <button id="closeButton2" class="close-button">Close</button>
+                    </dialog>
+                </div>
+
+                <div class="membership-card" id="silver-card">
+                    <h3>Silver Membership Level</h3>
+                    <button id="openButton3">Learn More</button>
+                    <dialog id="dialogBox3">
+                        <h2>Silver Membership</h2>
+                        <p><strong>Benefits include:</strong></p>
+                        <ul>
+                            <li>Business featured on the Chamber website for one month</li>
+                            <li>Discounted booth space at Chamber events</li>
+                            <li>Access to exclusive networking luncheons</li>
+                        </ul>
+                        <p><strong>Cost:</strong> $25 annual</p>
+                        <button id="closeButton3" class="close-button">Close</button>
+                    </dialog>
+                </div>
+
+                <div class="membership-card" id="gold-card">
+                    <h3>Gold Membership Level</h3>
+                    <button id="openButton4">Learn More</button>
+                    <dialog id="dialogBox4">
+                        <h2>Gold Membership</h2>
+                        <p><strong>Benefits include:</strong></p>
+                        <ul>
+                            <li>Priority listing in the Chamber’s business directory</li>
+                            <li>One free advertisement in the Chamber newsletter</li>
+                            <li>Invitations to member-only workshops and training sessions</li>
+                        </ul>
+                        <p><strong>Cost:</strong> $50 annual</p>
+                        <button id="closeButton4" class="close-button">Close</button>
+                    </dialog>
+                </div>
+
+            </section>
+
+
+
+
     </main>
 
 
