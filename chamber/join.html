@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Join the Bogotá Chamber of Commerce to connect with local businesses, explore networking opportunities, and stay updated on the latest events.">
+        content="Join our membership program to access exclusive benefits, networking opportunities, and business growth resources. Choose from four membership levels and submit your application today.">
     <meta name="author" content="Marcos Encarnacion">
     <link rel="canonical" href="https://marcosencarnacion.github.io/wdd231/chamber/index.html">
 
@@ -13,12 +13,12 @@
     <meta property="og:title" content="Bogotá Chamber of Commerce | Business Directory & Networking">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://marcosencarnacion.github.io/wdd231/chamber/images/business-themed.jpg">
-    <meta property="og:url" content="https://marcosencarnacion.github.io/wdd231/chamber/index.html">
+    <meta property="og:url" content="https://marcosencarnacion.github.io/wdd231/chamber/join.html">
     <meta property="og:description"
         content="Join the Bogotá Chamber of Commerce to connect with local businesses, explore networking opportunities, and stay updated on the latest events.">
 
-    <title>Bogotá Chamber of Commerce | Business Directory & Networking</title>
-    <link rel="stylesheet" href="styles/index.css">
+    <title>Bogotá Chamber of Commerce | Apply for Membership – Exclusive Benefits for Your Organization</title>
+    <link rel="stylesheet" href="styles/join.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,71 +41,30 @@
             <button id="close-menu" class="close-btn">✖</button>
             <a href="index.html" id="home-link">Home</a>
             <a href="directory.html" id="directory-link">Directory</a>
-            <a href="join.html" id="join-link">Join</a>
+            <a href="#" id="join-link">Join</a>
             <a href="#" id="discover-link" title="Final Project Folder">Discover</a>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <img src="images/hero-chamber.jpg" alt="Bogotá Skyline" loading="lazy">
-            <div class=" hero-content">
-                <h3>Welcome to the Bogotá Chamber of Commerce</h3>
-                <a href="#" class="btn">Join Us</a>
+        <section class="membership-container">
+            <div class="membership-card" id="np-card">
+                <h3>Non Profit Membership Level</h3>
+                <button onclick="openModal('np-modal')">Learn More</button>
+            </div>
+            <div class="membership-card" id="bronze-card">
+                <h3>Bronze Membership Level</h3>
+                <button onclick="openModal('bronze-modal')">Learn More</button>
+            </div>
+            <div class="membership-card" id="silver-card">
+                <h3>Silver Membership Level</h3>
+                <button onclick="openModal('silver-modal')">Learn More</button>
+            </div>
+            <div class="membership-card" id="gold-card">
+                <h3>Gold Membership Level</h3>
+                <button onclick="openModal('gold-modal')">Learn More</button>
             </div>
         </section>
-
-        <div class="home">
-            <h1>Home</h1>
-        </div>
-
-        <!-- Events, Weather, Forecast -->
-        <section class="info-sections">
-            <div class="events">
-                <h2>Upcoming Events</h2>
-                <ul>
-                    <li><strong>April 10, 2025 | 9:00 AM:</strong> Bogotá Business Networking Summit – JW Marriott Hotel
-                        Bogotá</li>
-                    <li><strong>April 18, 2025 | 2:00 PM:</strong> Digital Marketing Workshop – Cámara de Comercio de
-                        Bogotá</li>
-                    <li><strong>April 25, 2025 | 10:00 AM:</strong> Sustainable Business Expo 2025 – Corferias Bogotá
-                    </li>
-                    <li><strong>May 5-7, 2025 | 8:30 AM:</strong> Entrepreneurship Bootcamp – Universidad de los Andes
-                    </li>
-                    <li><strong>May 15, 2025 | 1:00 PM:</strong> Women in Business Leadership Forum – Hilton Bogotá
-                        Corferias</li>
-                </ul>
-            </div>
-
-            <div class="weather">
-                <div class="weather-header">
-                    <img id="graphic" src="images/default-icon.png" alt="">
-                    <h2>Current Weather</h2>
-                </div>
-
-                <div class="weather-info">
-                    <p><strong>City:</strong> <span id="city"></span></p>
-                    <p><strong>Description:</strong> <span id="description"></span></p>
-                    <p><strong>Temperature:</strong> <span id="temperature">--</span>°C</p>
-                    <p><strong>High:</strong> <span id="high-temp">--</span>°C</p>
-                    <p><strong>Low:</strong> <span id="low-temp">--</span>°C</p>
-                    <p><strong>Humidity:</strong> <span id="humidity">--</span>%</p>
-                    <p><strong>Sunrise:</strong> <span id="sunrise">--</span></p>
-                    <p><strong>Sunset:</strong> <span id="sunset">--</span></p>
-                </div>
-            </div>
-
-            <div class="forecast">
-                <h2>Forecast</h2>
-                <div class="forecast-container" id="forecast">
-                </div>
-            </div>
-
-        </section>
-
-
-        <div class="spotlights"></div>
-
     </main>
 
 
