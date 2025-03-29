@@ -49,11 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    if (!spotlightContainer) {
-        console.log("Spotlight container not found - skipping display");
-        return;
-    }
-
     // Display Spotlight Ads for Gold and Silver Members
     function displaySpotlights(membersData) {
         // Filter Gold and Silver Members
