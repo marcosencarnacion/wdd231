@@ -1,38 +1,46 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Get the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    
-    // Display the submitted data
+
+    function setTextContent(elementId, text) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.textContent = text;
+        }
+    }
+
+    // Display the submitted data with checks
     if (urlParams.has('first') && urlParams.has('last')) {
-        document.getElementById('full-name').textContent = 
-            `${urlParams.get('first')} ${urlParams.get('last')}`;
+        setTextContent('full-name', `${urlParams.get('first')} ${urlParams.get('last')}`);
     }
-    
+
     if (urlParams.has('email')) {
-        document.getElementById('user-email').textContent = urlParams.get('email');
+        setTextContent('user-email', urlParams.get('email'));
     }
-    
+
     if (urlParams.has('phone')) {
-        document.getElementById('user-phone').textContent = urlParams.get('phone');
+        setTextContent('user-phone', urlParams.get('phone'));
     }
-    
+
     if (urlParams.has('organization')) {
-        document.getElementById('business-name').textContent = urlParams.get('organization');
+        setTextContent('business-name', urlParams.get('organization'));
     }
-    
+
     if (urlParams.has('membership')) {
-        document.getElementById('membership-level').textContent = urlParams.get('membership');
+        setTextContent('membership-level', urlParams.get('membership'));
     }
-    
-    // Format and display the timestamp
-    const timestamp = urlParams.get('timestamp') || new Date().toISOString();
-    const date = new Date(timestamp);
-    document.getElementById('submission-date').textContent = 
-        date.toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
+
+    // Format and display the timestamp with check
+    const dateElement = document.getElementById('submission-date');
+    if (dateElement) {
+        const timestamp = urlParams.get('timestamp') || new Date().toISOString();
+        const date = new Date(timestamp);
+        dateElement.textContent = date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
             day: 'numeric',
             hour: '2-digit',
             minute: '2-digit'
         });
+    }
 });
