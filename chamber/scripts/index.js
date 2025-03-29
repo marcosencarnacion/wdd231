@@ -139,9 +139,12 @@ document.addEventListener("DOMContentLoaded", () => {
         dialogBox4.close();
     });
 
-
 });
 
 document.getElementById('currentyear').textContent = new Date().getFullYear();
 document.getElementById('lastModified').textContent = 'Last modified: ' + document.lastModified;
-document.getElementById('timestamp').value = new Date().toISOString();
+
+const timestampField = document.getElementById('timestamp');
+if (timestampField) {
+    timestampField.value = new Date().toISOString();
+}
