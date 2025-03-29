@@ -49,7 +49,37 @@
 
         <div class="join">
             <h1>Join</h1>
-            <div class="underline"></div>
+
+            <div class="application-form">
+                <h2>Membership Application Form</h2>
+                <form method="GET" action="thankyou.html" class="designOne">
+                    <label>First Name <input type="text" name="first" required autocomplete="given-name" title="Your First Name"></label>
+                    <label>Last Name <input type="text" name="last" required autocomplete="family-name" title="Your Last Name"></label>
+                    <label>Organizational Title <input type="text" name="org-title" title="Your Organizational Title" autocomplete="organization-title" pattern="^[A-Za-z\-\s]{7,}$" placeholder="Minimum 7 characters"></label>
+                    <label>Email <input type="email" name="email" required placeholder="example@email.com" title="Your Email" autocomplete="email"></label>
+                    <label>Mobile Phone <input type="tel" name="phone" required autocomplete="tel" title="A Phone Number with dashes" placeholder="987-555-1234"></label>
+                    <label>Business/Organization Name <input type="text" name="organization" required autocomplete="organization" title="Business/Organization Name"></label>
+
+                    <h3>Business/Organization Description</h3>
+                    <label>
+                    <textarea name="description" title="Describe your business or organization" rows="4" cols="50"></textarea>
+                    </label>
+                    
+                    <div class="radio-group">
+                        <h3>Membership Level</h3>
+                        <label><input type="radio" name="membership" value="Non Profit" checked> <span>Non Profit Membership - No Fee</span></label>
+                        <label><input type="radio" name="membership" value="Bronze"> <span>Bronze Membership</span></label>
+                        <label><input type="radio" name="membership" value="Silver"> <span>Silver Membership</span></label>
+                        <label><input type="radio" name="membership" value="Gold"> <span>Gold Membership</span></label>
+                    </div>
+
+                    <input type="hidden" name="timestamp" id="timestamp">
+                    <input type="submit" value="Apply for Membership">
+
+                </form>
+            </div>
+
+
 
             <!-- Modals -->
             <section class="membership-container">
@@ -118,8 +148,7 @@
                 </div>
 
             </section>
-
-
+        </div>
 
 
     </main>
