@@ -37,39 +37,51 @@
             <button id="menu-toggle" class="menu-btn">☰</button>
         </div>
         <nav class="menu-links">
-            <button id="close-menu" class="close-btn">✖</button>
+            <button id="close-menu" class="close-btn"></button>
             <a href="index.html" id="home-link">Home</a>
             <a href="directory.html" id="directory-link">Directory</a>
-            <a href="#" id="join-link">Join</a>
+            <a href="join.html" id="join-link">Join</a>
             <a href="#" id="discover-link" title="Final Project Folder">Discover</a>
         </nav>
     </header>
 
     <main>
 
-        <div class="join">
-            <h1>Join</h1>
 
+        <h1>Join</h1>
+
+        <div class="form-membership-container">
             <div class="application-form">
                 <h2>Membership Application Form</h2>
                 <form method="GET" action="thankyou.html" class="designOne">
-                    <label>First Name <input type="text" name="first" required autocomplete="given-name" title="Your First Name"></label>
-                    <label>Last Name <input type="text" name="last" required autocomplete="family-name" title="Your Last Name"></label>
-                    <label>Organizational Title <input type="text" name="org-title" title="Your Organizational Title" autocomplete="organization-title" pattern="^[A-Za-z\-\s]{7,}$" placeholder="Minimum 7 characters"></label>
-                    <label>Email <input type="email" name="email" required placeholder="example@email.com" title="Your Email" autocomplete="email"></label>
-                    <label>Mobile Phone <input type="tel" name="phone" required autocomplete="tel" title="A Phone Number with dashes" placeholder="987-555-1234"></label>
-                    <label>Business/Organization Name <input type="text" name="organization" required autocomplete="organization" title="Business/Organization Name"></label>
+                    <label>First Name <input type="text" name="first" required autocomplete="given-name"
+                            title="Your First Name"></label>
+                    <label>Last Name <input type="text" name="last" required autocomplete="family-name"
+                            title="Your Last Name"></label>
+                    <label>Organizational Title <input type="text" name="org-title" title="Your Organizational Title"
+                            autocomplete="organization-title" pattern="^[A-Za-z\-\s]{7,}$"
+                            placeholder="Minimum 7 characters"></label>
+                    <label>Email <input type="email" name="email" required placeholder="example@email.com"
+                            title="Your Email" autocomplete="email"></label>
+                    <label>Mobile Phone <input type="tel" name="phone" required autocomplete="tel"
+                            title="A Phone Number with dashes" placeholder="987-555-1234"></label>
+                    <label>Business/Organization Name <input type="text" name="organization" required
+                            autocomplete="organization" title="Business/Organization Name"></label>
 
                     <h3>Business/Organization Description</h3>
                     <label>
-                    <textarea name="description" title="Describe your business or organization" rows="4" cols="50"></textarea>
+                        <textarea name="description" title="Describe your business or organization" rows="4"
+                            cols="50"></textarea>
                     </label>
-                    
+
                     <div class="radio-group">
                         <h3>Membership Level</h3>
-                        <label><input type="radio" name="membership" value="Non Profit" checked> <span>Non Profit Membership - No Fee</span></label>
-                        <label><input type="radio" name="membership" value="Bronze"> <span>Bronze Membership</span></label>
-                        <label><input type="radio" name="membership" value="Silver"> <span>Silver Membership</span></label>
+                        <label><input type="radio" name="membership" value="Non Profit" checked> <span>Non Profit
+                                Membership - No Fee</span></label>
+                        <label><input type="radio" name="membership" value="Bronze"> <span>Bronze
+                                Membership</span></label>
+                        <label><input type="radio" name="membership" value="Silver"> <span>Silver
+                                Membership</span></label>
                         <label><input type="radio" name="membership" value="Gold"> <span>Gold Membership</span></label>
                     </div>
 
@@ -78,6 +90,7 @@
 
                 </form>
             </div>
+
 
 
 
@@ -146,10 +159,8 @@
                         <button id="closeButton4" class="close-button">Close</button>
                     </dialog>
                 </div>
-
             </section>
         </div>
-
 
     </main>
 

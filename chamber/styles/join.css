@@ -123,47 +123,36 @@ nav a:hover {
     padding: 20px;
 }
 
-/* Toggle Button Style */
-.toggle-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+
+.form-membership-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 15rem;
+    align-items: start;
+    padding: 20px;
+    margin: 0 auto;
 }
 
-.toggle-btn {
-    background-color: #2b4373;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
+.application-form {
+    max-width: 500px; 
+    margin-right: auto; 
 }
 
-.toggle-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
+.application-form, .membership-container {
+    
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;  
+    max-width: 100%;
+    box-sizing: border-box;
 }
-
-.toggle-btn.active {
-    background-color: #0f5d09;
-}
-
 
 /* Membership Cards Style*/
-
 .membership-container {
     display: grid;
     gap: 20px;
-    padding: 30px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.membership-container {
-    text-align: center;
+    background: transparent;
+    
 }
 
 .membership-card {
@@ -176,6 +165,7 @@ nav a:hover {
     overflow: hidden;
     opacity: 0;
     animation: slideUp 0.8s ease-out forwards;
+    width: 100%;
 
 }
 
@@ -278,16 +268,10 @@ p {
 
 /* Form Styling */
 
-.application-form h2 {
+.application-form h2, .membership-container h2 {
     text-align: center;
-    background-color: #2b4373;
-    color: white;
-    display: block;
-    margin: 0 auto;
-    max-width: 600px;
-    border-radius: 5px;
-}
 
+}
 
 .designOne {
     background: white;
