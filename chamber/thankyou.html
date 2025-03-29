@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for joining the Bogotá Chamber of Commerce">
+    <title>Thank You for Your Application | Bogotá Chamber of Commerce</title>
+    <link rel="stylesheet" href="styles/join.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/x-icon" href="skyline.ico">
+    <script src="scripts/thankyou.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="profile-container">
+            <img src="images/skyline-logo.webp" alt="logo-chamber-of-commerce" class="main-logo">
+            <div>
+                <h2>Bogotá</h2>
+                <p>Chamber of Commerce</p>
+            </div>
+            <button id="menu-toggle" class="menu-btn">☰</button>
+        </div>
+        <nav class="menu-links">
+            <button id="close-menu" class="close-btn"></button>
+            <a href="index.html" id="home-link">Home</a>
+            <a href="directory.html" id="directory-link">Directory</a>
+            <a href="join.html" id="join-link">Join</a>
+            <a href="#" id="discover-link" title="Final Project Folder">Discover</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="thank-you-container">
+            <h1>Thank You for Your Application!</h1>
+
+            <div class="confirmation-card">
+                <h2>Your Membership Application Details</h2>
+
+                <div class="confirmation-details">
+                    <p><strong>Submission Date:</strong> <span id="submission-date"></span></p>
+                    <p><strong>Name:</strong> <span id="full-name"></span></p>
+                    <p><strong>Email:</strong> <span id="user-email"></span></p>
+                    <p><strong>Phone:</strong> <span id="user-phone"></span></p>
+                    <p><strong>Business Name:</strong> <span id="business-name"></span></p>
+                    <p><strong>Membership Level:</strong> <span id="membership-level"></span></p>
+                </div>
+
+                <div class="next-steps">
+                    <h3>What Happens Next?</h3>
+                    <ul>
+                        <li>You'll receive a confirmation email within 24 hours</li>
+                        <li>Our membership team will review your application</li>
+                        <li>We'll contact you if we need any additional information</li>
+                        <li>Once approved, you'll receive your membership package</li>
+                    </ul>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="index.html" class="btn">Return to Home</a>
+                    <a href="directory.html" class="btn">View Business Directory</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Bogotá Chamber of Commerce</h3>
+                <p>Carrera 7 # 12-32, Bogotá, Colombia</p>
+                <p>info@bogotachamber.com</p>
+                <p>+57 1 234 5678</p>
+            </div>
+
+            <div class="footer-center">
+                <a href="https://youtube.com" target="_blank">
+                    <img src="images/youtube.png" alt="Youtube">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="images/twitter-x.png" alt="Twitter">
+                </a>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="images/facebook.png" alt="Facebook">
+                </a>
+            </div>
+
+            <div class="footer-right">
+                <p>WDD 231 Class Project</p>
+                <p>Marcos Vinicio Encarnacion Castro</p>
+                <p>©<span id="currentyear"></span>🌴 Marcos Encarnacion 🌴 Dominican Republic</p>
+                <p id="lastModified"></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
