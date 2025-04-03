@@ -584,15 +584,12 @@ footer {
         transform: scale(1.05);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         filter: brightness(1.1);
+        transform: translateY(-5px);
     }
 
     .discover-card {
         transition: all 0.3s ease;
         overflow: hidden;
-    }
-
-    .discover-card:hover {
-        transform: translateY(-5px);
     }
 }
 
