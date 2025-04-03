@@ -161,7 +161,7 @@ h1 {
 
 .discover-card h2 {
     grid-area: title;
-    color: #0077cc;
+    color: #015794;
     text-align: left;
     margin: 10px 0;
 }
@@ -195,7 +195,7 @@ h1 {
 
 .discover-card button {
     grid-area: button;
-    background-color: #015794;
+    background-color: #024372;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -503,7 +503,7 @@ footer {
 }
 
 .modal-tip strong {
-    color: #015794;
+    color: #01263F;
 }
 
 /* ===== Mobile Responsive Styles ===== */
