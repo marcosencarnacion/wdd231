@@ -1,4 +1,4 @@
-[
+export const sites = [
     {
         "name": "Museo del Oro",
         "address": "Cra. 6 Nº 15-88, Bogotá, Colombia",
