@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
             <figure>
-                <img src="${site.image}" alt="${site.name}" width="300" height="200">
+                <img src="${site.image}" alt="${site.name}" width="300" height="200" loading="lazy" class="lazy-load">
             </figure>
             <h2>${site.name}</h2>
             <address>${site.address}</address>
