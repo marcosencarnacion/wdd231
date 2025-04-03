@@ -1,6 +1,39 @@
 import { sites } from "../data/sites.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const spotlightContainer = document.querySelector(".spotlights");
+    const menuToggle = document.getElementById("menu-toggle");
+    const closeMenu = document.getElementById("close-menu");
+    const menuLinks = document.querySelector(".menu-links");
+
+    menuToggle.addEventListener("click", () => {
+        menuLinks.classList.toggle("active");
+
+        // Change the icon based on menu state
+        if (menuLinks.classList.contains("active")) {
+            menuToggle.textContent = "✖";
+        } else {
+            menuToggle.textContent = "☰";
+        }
+
+        // Get the current page URL
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+        // Highlight the active page link
+        const links = document.querySelectorAll(".menu-links a");
+        links.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active-page");
+            }
+        });
+    });
+
+    closeMenu.addEventListener("click", () => {
+        menuLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+    });
+
     const container = document.getElementById("discover-container");
 
     // Create modal element
