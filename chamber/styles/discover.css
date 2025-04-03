@@ -197,6 +197,7 @@ h1 {
     grid-area: button;
     background-color: #024372;
     color: white;
+    font-weight: bold;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
