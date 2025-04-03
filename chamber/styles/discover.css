@@ -596,6 +596,13 @@ footer {
     }
 }
 
+@media (hover: none) {
+    .discover-card img {
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
 /* ===== Discovery Page Layout ===== */
 
 #page-content {
