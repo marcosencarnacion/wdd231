@@ -64,7 +64,7 @@ header h2 span {
 
 main h1 {
     margin: 1.5rem;
-    text-align: left;
+    text-align: center;
 }
 
 .menu-btn,
@@ -429,133 +429,6 @@ footer {
     }
 }
 
-/* ===== Tablet/Landscape Adjustments ===== */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .form-membership-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-
-    .application-form {
-        max-width: 100%;
-    }
-}
-
-
-/* Thank You Page Styles */
-.thank-you-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    text-align: center;
-}
-
-.thank-you-container h1 {
-    color: #2b4373;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.confirmation-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    margin: 0 auto;
-    max-width: 800px;
-    text-align: left;
-}
-
-.confirmation-card h2 {
-    color: #2b4373;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-.confirmation-details {
-    background: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-}
-
-.confirmation-details p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.confirmation-details strong {
-    color: #2b4373;
-    min-width: 150px;
-    display: inline-block;
-}
-
-.next-steps {
-    margin-bottom: 2rem;
-}
-
-.next-steps h3 {
-    color: #2b4373;
-    margin-bottom: 1rem;
-}
-
-.next-steps ul {
-    padding-left: 1.5rem;
-}
-
-.next-steps li {
-    margin-bottom: 0.5rem;
-}
-
-.action-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.btn {
-    background: #2b4373;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: #1a365d;
-    transform: translateY(-2px);
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .confirmation-card {
-        padding: 1.5rem;
-    }
-
-    .confirmation-details p {
-        font-size: 1rem;
-    }
-
-    .confirmation-details strong {
-        min-width: 120px;
-    }
-
-    .action-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
 /* Visitor message styling */
 .visitor-message {
     background-color: #2b4373;
@@ -589,12 +462,121 @@ footer {
     }
 }
 
-/* Optional: Add a close button for the message */
-.visitor-message .close-btn {
-    float: right;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 1.2rem;
+/* ===== Discovery Page Layout ===== */
+
+#page-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+#left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 350px;
+}
+
+.demographics {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    line-height: 2.5rem;
+}
+
+.demographics h2 {
+    color: #2b4373;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.5rem;
+}
+
+.demographics p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.demographics ul {
+    margin-left: 1.5rem;
+}
+
+#right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    #page-content {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    #page-content {
+        grid-template-columns: 1fr 3fr;
+    }
+
+    #discover-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===== Special 525px Mobile Adjustment ===== */
+@media (max-width: 768px) {
+    #page-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    #left-column,
+    #right-column {
+        width: 95%;
+        max-width: 95%;
+    }
+
+    .discover-card {
+        width: 100%;
+        padding: 12px;
+    }
+
+    main h1 {
+        text-align: center;
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+
+    .visitor-message {
+        padding: 0.8rem;
+        margin: 0.8rem 0;
+        font-size: 0.9rem;
+    }
+
+    .demographics {
+        padding: 1rem;
+    }
+
+    .demographics h2 {
+        font-size: 1.2rem;
+    }
+
+    .demographics p,
+    .demographics li {
+        font-size: 0.9rem;
+    }
+
+    #discover-container {
+        padding: 10px;
+        gap: 15px;
+    }
 }
