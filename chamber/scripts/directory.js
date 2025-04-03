@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fetch JSON File with Async function
     async function fetchMembers() {
         try {
-            const response = await fetch("members.json");
+            const response = await fetch("../data/members.json");
             const data = await response.json();
             localStorage.setItem("members", JSON.stringify(data));
             displayBusinesses(data);
