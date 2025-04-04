@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
     </div>
-`;
+    `;
 
     document.body.appendChild(modal);
 
