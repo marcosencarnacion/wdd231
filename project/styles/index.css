@@ -1,25 +1,36 @@
-/* styles-desktop.css */
+/* styles-desktop.css - Rediseño con paleta de colores */
+:root {
+    --dark-brown: #5e2d08;
+    --deep-charcoal: #000000;
+    --soft-white: #FFFFFF;
+    --darker-orange: #B45C00;
+    --warm-yellow: #F4A900;
+    --chesnut: #502f16;
+}
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #FFFFFF;
-    color: #000000;
     font-family: 'Lora', serif;
+    background-color: var(--soft-white);
+    color: var(--deep-charcoal);
     line-height: 1.6;
-    font-size: 18px;
+    margin: 0 auto;
+    padding: 0;
 }
+
+/* ============================ Navigation Buttons ======================================*/
 
 /* Header */
 header {
-    background: linear-gradient(135deg, #B45C00, #FFA559);
-    color: #FFFFFF;
-    text-align: center;
-    padding: 30px 20px;
+    background: linear-gradient(135deg, #65340b, #FFA559);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 header h1 {
@@ -28,7 +39,182 @@ header h1 {
     font-size: 2.8rem;
 }
 
-/* Sections */
+.logo {
+    max-width: 180px;
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.open-menu,
+.close-menu {
+    display: none;
+}
+
+.nav {
+    display: block;
+}
+
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li a {
+    color: var(--soft-white);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-list li a:hover {
+    background-color: var(--darker-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================ Hero Section ======================================*/
+.welcome-section {
+    display: flex;
+    align-items: center;
+    padding: 4rem 10%;
+    gap: 3rem;
+    background: linear-gradient(to right, var(--soft-white) 50%, rgba(255, 255, 255, 0.8));
+}
+
+.welcome-section .text {
+    flex: 1;
+}
+
+.welcome-section h2 {
+    color: var(--deep-charcoal);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--warm-yellow);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--deep-charcoal);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--dark-brown);
+    color: var(--soft-white);
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: var(--darker-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ============================ Main Sections ======================================*/
+.features {
+    padding: 4rem 10%;
+    background-color: var(--soft-white);
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    gap: 3rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background-color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature .image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.feature .image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.feature:hover .image img {
+    transform: scale(1.05);
+}
+
+.feature .text {
+    flex: 2;
+}
+
+.feature h2 {
+    color: var(--dark-brown);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.feature h2 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.feature h2 a:hover {
+    color: var(--darker-orange);
+}
+
+.feature p {
+    color: var(--deep-charcoal);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
 section {
     padding: 40px 10%;
     border-bottom: 1px solid #ccc;
@@ -61,9 +247,113 @@ section li {
     margin-bottom: 10px;
 }
 
+/* ============================ Choose Your Style Section ======================================*/
+
+.choose-passion {
+    padding: 4rem 10%;
+    background-color: var(--soft-white);
+    text-align: center;
+}
+
+.choose-passion h2 {
+    color: var(--deep-charcoal);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--warm-yellow);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gallery a {
+    text-decoration: none;
+    color: var(--deep-charcoal);
+    transition: all 0.3s ease;
+}
+
+.gallery a:hover {
+    transform: translateY(-10px);
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid var(--warm-yellow);
+    transition: all 0.3s ease;
+}
+
+.gallery a:hover img {
+    border-color: var(--dark-brown);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery p {
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--deep-charcoal);
+}
+
+/* ============================ Violin Tip Section ======================================*/
+.sayings-section {
+    padding: 4rem 10%;
+    background: linear-gradient(to right, var(--soft-white), #f8f8f8);
+    text-align: center;
+}
+
+.sayings-section h2 {
+    color: var(--deep-charcoal);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.sayings-section p {
+    color: var(--deep-charcoal);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.saying-btn {
+    background-color: var(--dark-brown);
+    color: var(--soft-white);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.saying-btn:hover {
+    background-color: var(--darker-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.saying-box {
+    margin: 2rem auto 0;
+    padding: 2rem;
+    background-color: var(--soft-white);
+    border-radius: 10px;
+    max-width: 800px;
+    font-size: 1.3rem;
+    color: var(--deep-charcoal);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--warm-yellow);
+}
 
 
-/* Footer */
+/* ============================ Footer ======================================*/
 footer {
     background-color: #502f16;
     color: #FFFFFF;
@@ -72,8 +362,54 @@ footer {
     font-family: 'Poppins', sans-serif;
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--soft-white);
+    color: var(--chesnut);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--warm-yellow);
+    transform: translateY(-5px);
+    color: var(--deep-charcoal);
+}
+
 footer p {
-    margin: 5px 0;
+    margin: 0.5rem 0;
+    color: var(--soft-white);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--warm-yellow);
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 1.5rem auto;
+    width: 50%;
 }
 
 #lastModified,
@@ -81,19 +417,27 @@ footer p {
     color: #FFFFFF;
 }
 
-.cta-button {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #8B0000; 
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
+/* ============================ Hover Effects for Large Views ======================================*/
+@media (min-width: 1025px) {
 
-.cta-button:hover {
-    background-color: #a52a2a; 
+    .feature .image img,
+    .gallery img,
+    .hero-image img {
+        transition: all 0.5s ease;
+        opacity: 0.9;
+        filter: brightness(0.95);
+    }
+
+    .feature:hover .image img,
+    .gallery a:hover img,
+    .hero-image:hover img {
+        opacity: 1;
+        filter: brightness(1.1);
+        transform: scale(1.05);
+    }
+
+    .feature:hover,
+    .gallery a:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
 }

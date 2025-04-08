@@ -11,6 +11,21 @@ const tips = [
     "👂 Listen to professional violinists to develop your musical ear."
 ];
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Footer: Display the current year and the last modified date
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById("currentyear");
+    if (yearElement) {
+        yearElement.textContent = currentYear;
+    }
+
+    const lastModified = document.lastModified;
+    const modifiedElement = document.getElementById("lastModified");
+    if (modifiedElement) {
+        modifiedElement.textContent = `Last updated: ${lastModified}`;
+    }
+});
+
 document.getElementById("generateTip").addEventListener("click", function () {
     const randomIndex = Math.floor(Math.random() * tips.length);
     document.getElementById("tipDisplay").textContent = tips[randomIndex];
@@ -29,4 +44,17 @@ document.getElementById("generateSaying").addEventListener("click", () => {
     const randomIndex = Math.floor(Math.random() * remainingTips.length);
     const tip = remainingTips.splice(randomIndex, 1)[0]; // Remove and store the tip
     display.textContent = tip;
+
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const navContainer = document.getElementById('navContainer');
+
+    menuToggle.addEventListener('click', function () {
+        navContainer.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', function () {
+        navContainer.classList.remove('active');
+    });
+
 });
