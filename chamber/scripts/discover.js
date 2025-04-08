@@ -16,17 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             menuToggle.textContent = "☰";
         }
+    });
 
-        // Get the current page URL
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
-
-        // Highlight the active page link
-        const links = document.querySelectorAll(".menu-links a");
-        links.forEach(link => {
-            if (link.getAttribute("href") === currentPage) {
-                link.classList.add("active-page");
-            }
-        });
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.menu-links a').forEach(link => {
+        link.classList.remove('active-page'); // Remove any existing active class
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active-page');
+        }
     });
 
     closeMenu.addEventListener("click", () => {
