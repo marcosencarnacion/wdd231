@@ -1,0 +1,99 @@
+/* styles-desktop.css */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #B45C00, #FFA559);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+}
+
+/* Sections */
+section {
+    padding: 40px 10%;
+    border-bottom: 1px solid #ccc;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #B45C00;
+    border-bottom: 3px solid #F4A900;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+section ul,
+section ol {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+section li {
+    margin-bottom: 10px;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #502f16;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+#lastModified,
+#currentyear {
+    color: #FFFFFF;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #8B0000; 
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #a52a2a; 
+}

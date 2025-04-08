@@ -1,0 +1,43 @@
+/* styles-mobile.css */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 20px 5%;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+        padding-bottom: 5px;
+    }
+
+    section p {
+        margin-bottom: 10px;
+    }
+
+    ul,
+    ol {
+        margin-left: 15px;
+    }
+
+    .wireframe {
+        max-width: 100%;
+        margin: 15px auto;
+        display: flex;
+        align-items: center;
+
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 15px 5px;
+    }
+
+}
