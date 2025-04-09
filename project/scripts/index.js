@@ -12,7 +12,7 @@ const tips = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Footer: Display the current year and the last modified date
+    // 1. Footer dates functionality
     const currentYear = new Date().getFullYear();
     const yearElement = document.getElementById("currentyear");
     if (yearElement) {
@@ -24,37 +24,65 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modifiedElement) {
         modifiedElement.textContent = `Last updated: ${lastModified}`;
     }
-});
 
-document.getElementById("generateTip").addEventListener("click", function () {
-    const randomIndex = Math.floor(Math.random() * tips.length);
-    document.getElementById("tipDisplay").textContent = tips[randomIndex];
-});
+    // 2. Mobile menu functionality
+    const openMenu = document.getElementById("open");
+    const closeMenu = document.getElementById("close");
+    const nav = document.getElementById("nav");
 
-let remainingTips = [...tips];
+    if (openMenu && closeMenu && nav) {
+        openMenu.addEventListener("click", () => {
+            nav.classList.add("active");
+        });
 
-document.getElementById("generateSaying").addEventListener("click", () => {
-    const display = document.getElementById("sayingDisplay");
-
-    if (remainingTips.length === 0) {
-        display.textContent = "✅ You've seen all the tips! Refresh the page to start over.";
-        return;
+        closeMenu.addEventListener("click", () => {
+            nav.classList.remove("active");
+        });
     }
 
-    const randomIndex = Math.floor(Math.random() * remainingTips.length);
-    const tip = remainingTips.splice(randomIndex, 1)[0]; // Remove and store the tip
-    display.textContent = tip;
+    // 3. Highlight current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-list li a');
 
-    const menuToggle = document.getElementById('menuToggle');
-    const closeMenu = document.getElementById('closeMenu');
-    const navContainer = document.getElementById('navContainer');
-
-    menuToggle.addEventListener('click', function () {
-        navContainer.classList.add('active');
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href').split('/').pop();
+        
+        // Check if the link href matches the current page
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        }
+        
+        // Special case for index.html which might be just '/'
+        if (currentPage === '' && linkPage === 'index.html') {
+            link.classList.add('active');
+        }
     });
 
-    closeMenu.addEventListener('click', function () {
-        navContainer.classList.remove('active');
-    });
+    // 4. Violin tip generator
+    const generateTipBtn = document.getElementById("generateTip");
+    if (generateTipBtn) {
+        generateTipBtn.addEventListener("click", function() {
+            const randomIndex = Math.floor(Math.random() * tips.length);
+            document.getElementById("tipDisplay").textContent = tips[randomIndex];
+        });
+    }
 
+    // 5. Remaining tips functionality (if generateSaying button exists)
+    const generateSayingBtn = document.getElementById("generateSaying");
+    if (generateSayingBtn) {
+        let remainingTips = [...tips];
+        
+        generateSayingBtn.addEventListener("click", () => {
+            const display = document.getElementById("sayingDisplay");
+
+            if (remainingTips.length === 0) {
+                display.textContent = "✅ You've seen all the tips! Refresh the page to start over.";
+                return;
+            }
+
+            const randomIndex = Math.floor(Math.random() * remainingTips.length);
+            const tip = remainingTips.splice(randomIndex, 1)[0];
+            display.textContent = tip;
+        });
+    }
 });

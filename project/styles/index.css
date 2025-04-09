@@ -78,6 +78,12 @@ header h1 {
     transition: all 0.3s ease;
 }
 
+.nav-list li a.active {
+    background-color: var(--darker-orange);
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 .nav-list li a:hover {
     background-color: var(--darker-orange);
     transform: translateY(-2px);
