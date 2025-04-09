@@ -120,8 +120,58 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    const setupInteractiveTools = () => {
-        // Leave your existing metronome, tuner, etc. logic here
+    const setupInteractiveTools = async () => {
+        try {
+            const res = await fetch('data/tools.json');
+            const tools = await res.json();
+
+            // Sheet Music Controls
+            const sheetMusicAudio = new Audio(tools.sheetMusic.audio);
+            const playBtn = document.querySelector('.play-btn');
+            const slowBtn = document.querySelector('.slow-btn');
+            const loopBtn = document.querySelector('.loop-btn');
+            const sheetImgs = document.querySelectorAll('.sheet-pages img');
+
+            // Optional: If using single image, update like this
+            if (sheetImgs.length === 1) {
+                sheetImgs[0].src = tools.sheetMusic.sheet;
+            }
+
+            playBtn.addEventListener('click', () => {
+                sheetMusicAudio.playbackRate = 1;
+                sheetMusicAudio.play();
+            });
+
+            slowBtn.addEventListener('click', () => {
+                sheetMusicAudio.playbackRate = 0.75;
+                sheetMusicAudio.play();
+            });
+
+            loopBtn.addEventListener('click', () => {
+                sheetMusicAudio.currentTime = 0;
+                sheetMusicAudio.loop = true;
+                sheetMusicAudio.play();
+            });
+
+            // Scale Trainer
+            document.querySelector('[data-exercise="scales"] .start-exercise')
+                .addEventListener('click', () => {
+                    const key = document.querySelector('.key-selector').value;
+                    const scaleAudio = new Audio(tools.scales[key]);
+                    scaleAudio.play();
+                });
+
+            // Rhythm Trainer
+            document.querySelector('[data-exercise="rhythm"] .start-exercise')
+                .addEventListener('click', () => {
+                    const tempo = document.querySelector('.tempo-selector').value;
+                    const rhythmAudio = new Audio(tools.rhythm[tempo]);
+                    rhythmAudio.play();
+                });
+
+        } catch (err) {
+            console.error("Failed to load interactive tools:", err);
+        }
     };
 
     const init = async () => {

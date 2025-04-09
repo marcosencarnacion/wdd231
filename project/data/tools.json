@@ -1,0 +1,17 @@
+{
+    "sheetMusic": {
+        "title": "Canon in D",
+        "audio": "resources/canon-in-d.mp3",
+        "sheet": "images/canon-sheet.webp"
+    },
+    "scales": {
+        "c": "assets/audio/scale-c.mp3",
+        "d": "assets/audio/scale-d.mp3",
+        "g": "assets/audio/scale-g.mp3"
+    },
+    "rhythm": {
+        "60": "assets/audio/rhythm-60bpm.mp3",
+        "80": "assets/audio/rhythm-80bpm.mp3",
+        "100": "assets/audio/rhythm-100bpm.mp3"
+    }
+}
