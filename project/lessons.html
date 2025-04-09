@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Comprehensive violin lessons for all levels. Video tutorials, interactive exercises, and downloadable sheet music to accelerate your learning.">
+    <meta name="author" content="Marcos Encarnacion">
+    <title>Violin Lessons - Beginner to Advanced | Violin Starter Hub</title>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&family=Pacifico&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/lessons.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="scripts/lessons.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/violin-logo.webp" alt="Violin Starter Hub Logo" class="logo" loading="lazy">
+        </a>
+        <button id="open" class="open-menu" aria-label="Open menu"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button id="close" class="close-menu" aria-label="Close menu"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="community.html">Practice & Community</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="lessons-container">
+        <section class="level-filter">
+            <button class="filter-btn active" data-level="all">All Levels</button>
+            <button class="filter-btn" data-level="beginner">Beginner</button>
+            <button class="filter-btn" data-level="intermediate">Intermediate</button>
+            <button class="filter-btn" data-level="advanced">Advanced</button>
+        </section>
+
+        <section class="lessons-grid">
+            <!-- Lessons will be dynamically loaded here -->
+            <div class="loading-spinner"></div>
+        </section>
+
+        <section class="interactive-tools">
+            <h2>Interactive Practice Tools</h2>
+            <div class="tool-container">
+                <div class="sheet-music-viewer">
+                    <h3>Interactive Sheet Music</h3>
+                    <div class="music-display">
+                        <img src="images/sample-sheet-music.webp" alt="Sample sheet music" loading="lazy">
+                        <div class="music-controls">
+                            <button class="play-btn">Play Along</button>
+                            <button class="slow-btn">Slow Speed</button>
+                            <button class="loop-btn">Loop Section</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-exercises">
+                    <h3>Practice Exercises</h3>
+                    <div class="exercise-container">
+                        <div class="exercise" data-exercise="scales">
+                            <h4>Scale Trainer</h4>
+                            <div class="exercise-controls">
+                                <select class="key-selector">
+                                    <option value="c">C Major</option>
+                                    <option value="g">G Major</option>
+                                    <option value="d">D Major</option>
+                                </select>
+                                <button class="start-exercise">Start</button>
+                            </div>
+                        </div>
+                        <div class="exercise" data-exercise="rhythm">
+                            <h4>Rhythm Trainer</h4>
+                            <div class="exercise-controls">
+                                <select class="tempo-selector">
+                                    <option value="60">60 BPM</option>
+                                    <option value="80">80 BPM</option>
+                                    <option value="100">100 BPM</option>
+                                </select>
+                                <button class="start-exercise">Start</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/ESCUELAFERNANDOSOR/" target="_blank" aria-label="Facebook"
+                class="btn btn-primary rounded-circle">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://x.com/EscFernandoSor" target="_blank" aria-label="Twitter">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCZ_gRS8kQJqa1mF3kuEI5Yg" target="_blank" aria-label="Youtube">
+                <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/escuelafernandosor/" target="_blank" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+        </div>
+
+        <hr>
+
+        <p>©<span id="currentyear"></span> 🌴 Marcos Encarnacion 🌴 Dominican Republic</p>
+        <p id="lastModified"></p>
+
+        <p><a href="references.html" target="_blank">References</a></p>
+    </footer>
+</body>
+
+</html>

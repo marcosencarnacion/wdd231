@@ -46,12 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href').split('/').pop();
-        
+
         // Check if the link href matches the current page
         if (linkPage === currentPage) {
             link.classList.add('active');
         }
-        
+
         // Special case for index.html which might be just '/'
         if (currentPage === '' && linkPage === 'index.html') {
             link.classList.add('active');
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. Violin tip generator
     const generateTipBtn = document.getElementById("generateTip");
     if (generateTipBtn) {
-        generateTipBtn.addEventListener("click", function() {
+        generateTipBtn.addEventListener("click", function () {
             const randomIndex = Math.floor(Math.random() * tips.length);
             document.getElementById("tipDisplay").textContent = tips[randomIndex];
         });
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const generateSayingBtn = document.getElementById("generateSaying");
     if (generateSayingBtn) {
         let remainingTips = [...tips];
-        
+
         generateSayingBtn.addEventListener("click", () => {
             const display = document.getElementById("sayingDisplay");
 
