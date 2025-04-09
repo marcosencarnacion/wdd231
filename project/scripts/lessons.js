@@ -135,4 +135,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modifiedElement) {
         modifiedElement.textContent = `Last updated: ${lastModified}`;
     }
+
+    const highlightCurrentPage = () => {
+        const navLinks = document.querySelectorAll('nav a');
+        const currentPath = window.location.pathname;
+
+        navLinks.forEach(link => {
+            const linkPath = new URL(link.href).pathname;
+
+            if (currentPath === linkPath || currentPath.endsWith(linkPath)) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    };
 });
