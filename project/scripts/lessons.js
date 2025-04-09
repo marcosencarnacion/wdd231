@@ -124,99 +124,114 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const res = await fetch('data/tools.json');
             const tools = await res.json();
-
+    
             // Sheet Music Controls
             const sheetMusicAudio = new Audio(tools.sheetMusic.audio);
             const playBtn = document.querySelector('.play-btn');
             const slowBtn = document.querySelector('.slow-btn');
             const loopBtn = document.querySelector('.loop-btn');
             const sheetImgs = document.querySelectorAll('.sheet-pages img');
-
-            // Optional: If using single image, update like this
+    
             if (sheetImgs.length === 1) {
                 sheetImgs[0].src = tools.sheetMusic.sheet;
             }
-
-            playBtn.addEventListener('click', () => {
-                sheetMusicAudio.playbackRate = 1;
-                sheetMusicAudio.play();
-            });
-
-            slowBtn.addEventListener('click', () => {
-                sheetMusicAudio.playbackRate = 0.75;
-                sheetMusicAudio.play();
-            });
-
-            loopBtn.addEventListener('click', () => {
-                sheetMusicAudio.currentTime = 0;
-                sheetMusicAudio.loop = true;
-                sheetMusicAudio.play();
-            });
-
-            // Scale Trainer
-            document.querySelector('[data-exercise="scales"] .start-exercise')
-                .addEventListener('click', () => {
+    
+            if (playBtn) {
+                playBtn.addEventListener('click', () => {
+                    sheetMusicAudio.playbackRate = 1;
+                    sheetMusicAudio.play();
+                });
+            }
+    
+            if (slowBtn) {
+                slowBtn.addEventListener('click', () => {
+                    sheetMusicAudio.playbackRate = 0.75;
+                    sheetMusicAudio.play();
+                });
+            }
+    
+            if (loopBtn) {
+                loopBtn.addEventListener('click', () => {
+                    sheetMusicAudio.currentTime = 0;
+                    sheetMusicAudio.loop = true;
+                    sheetMusicAudio.play();
+                });
+            }
+    
+            // ✅ Scale Trainer
+            const scaleBtn = document.querySelector('[data-exercise="scales"] .start-exercise');
+            if (scaleBtn) {
+                scaleBtn.addEventListener('click', () => {
                     const key = document.querySelector('.key-selector').value;
                     const scaleAudio = new Audio(tools.scales[key]);
                     scaleAudio.play();
                 });
-
-            // Rhythm Trainer
-            document.querySelector('[data-exercise="rhythm"] .start-exercise')
-                .addEventListener('click', () => {
+            }
+    
+            // ✅ Rhythm Trainer
+            const rhythmBtn = document.querySelector('[data-exercise="rhythm"] .start-exercise');
+            if (rhythmBtn) {
+                rhythmBtn.addEventListener('click', () => {
                     const tempo = document.querySelector('.tempo-selector').value;
                     const rhythmAudio = new Audio(tools.rhythm[tempo]);
                     rhythmAudio.play();
                 });
-
+            }
+    
         } catch (err) {
             console.error("Failed to load interactive tools:", err);
         }
-
+    
         // 🎵 Metronome Tool
         let bpm = 80;
         let metronomeInterval = null;
-
+    
         const bpmInput = document.getElementById('bpm');
         const bpmDisplay = document.getElementById('bpm-display');
         const startMetronomeBtn = document.getElementById('start-metronome');
         const stopMetronomeBtn = document.getElementById('stop-metronome');
-
+    
         const playClick = () => {
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioCtx.createOscillator();
             const gainNode = audioCtx.createGain();
-
+    
             oscillator.type = 'square';
             oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime);
             gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-
+    
             oscillator.connect(gainNode);
             gainNode.connect(audioCtx.destination);
-
+    
             oscillator.start();
             oscillator.stop(audioCtx.currentTime + 0.05);
         };
-
-        bpmInput.addEventListener('input', () => {
-            bpm = parseInt(bpmInput.value);
-            bpmDisplay.textContent = bpm;
-            if (metronomeInterval) {
+    
+        if (bpmInput && bpmDisplay) {
+            bpmInput.addEventListener('input', () => {
+                bpm = parseInt(bpmInput.value);
+                bpmDisplay.textContent = bpm;
+                if (metronomeInterval) {
+                    clearInterval(metronomeInterval);
+                    metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
+                }
+            });
+        }
+    
+        if (startMetronomeBtn) {
+            startMetronomeBtn.addEventListener('click', () => {
+                if (!metronomeInterval) {
+                    metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
+                }
+            });
+        }
+    
+        if (stopMetronomeBtn) {
+            stopMetronomeBtn.addEventListener('click', () => {
                 clearInterval(metronomeInterval);
-                metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
-            }
-        });
-
-        startMetronomeBtn.addEventListener('click', () => {
-            if (!metronomeInterval) {
-                metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
-            }
-        });
-
-        stopMetronomeBtn.addEventListener('click', () => {
-            clearInterval(metronomeInterval);
-            metronomeInterval = null;
-        });
+                metronomeInterval = null;
+            });
+        }
     };
 
     const init = async () => {
