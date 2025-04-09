@@ -122,4 +122,17 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     init();
+
+    // 1. Footer dates functionality
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById("currentyear");
+    if (yearElement) {
+        yearElement.textContent = currentYear;
+    }
+
+    const lastModified = document.lastModified;
+    const modifiedElement = document.getElementById("lastModified");
+    if (modifiedElement) {
+        modifiedElement.textContent = `Last updated: ${lastModified}`;
+    }
 });
