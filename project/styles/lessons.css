@@ -96,9 +96,13 @@
 }
 
 .interactive-tools {
-    max-width: 100%;
+    max-width: 900px; 
     margin: 2rem auto;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .tool-container {
@@ -164,6 +168,17 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.practice-exercises {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto; /* center it */
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
 .music-display img {
     width: 100%;
     border-radius: 5px;
@@ -173,13 +188,39 @@
 .music-controls,
 .exercise-controls {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 1rem;
+    
 }
+
 
 .music-controls button,
 .exercise-controls button,
 .exercise-controls select {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--dark-brown);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.exercise-card {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--light-neutral);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.metronome-controls {
+    margin-top: 0.5rem;
+}
+
+.metronome-controls button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
@@ -197,6 +238,7 @@
     animation: spin 1s linear infinite;
     margin: 2rem auto;
 }
+
 
 @keyframes spin {
     0% {

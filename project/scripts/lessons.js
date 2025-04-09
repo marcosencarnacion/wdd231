@@ -172,6 +172,51 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (err) {
             console.error("Failed to load interactive tools:", err);
         }
+
+        // 🎵 Metronome Tool
+        let bpm = 80;
+        let metronomeInterval = null;
+
+        const bpmInput = document.getElementById('bpm');
+        const bpmDisplay = document.getElementById('bpm-display');
+        const startMetronomeBtn = document.getElementById('start-metronome');
+        const stopMetronomeBtn = document.getElementById('stop-metronome');
+
+        const playClick = () => {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            oscillator.type = 'square';
+            oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.05);
+        };
+
+        bpmInput.addEventListener('input', () => {
+            bpm = parseInt(bpmInput.value);
+            bpmDisplay.textContent = bpm;
+            if (metronomeInterval) {
+                clearInterval(metronomeInterval);
+                metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
+            }
+        });
+
+        startMetronomeBtn.addEventListener('click', () => {
+            if (!metronomeInterval) {
+                metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
+            }
+        });
+
+        stopMetronomeBtn.addEventListener('click', () => {
+            clearInterval(metronomeInterval);
+            metronomeInterval = null;
+        });
     };
 
     const init = async () => {
@@ -179,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
         displayLessons(lessons);
         setupFilterButtons();
         setupInteractiveTools();
-        setupDownloadButtons(); // <-- Add this line
+        setupDownloadButtons();
 
         if (typeof highlightCurrentPage === 'function') {
             highlightCurrentPage();
