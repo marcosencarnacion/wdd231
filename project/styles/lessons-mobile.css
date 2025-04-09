@@ -1,0 +1,206 @@
+/* Mobile Styles - index-mobile.css */
+@media screen and (max-width: 768px) {
+
+    .nav-list li a.active {
+        border-left: 3px solid var(--warm-yellow);
+        padding-left: 0.5rem;
+    }
+
+    /* Header and Navigation */
+    header {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        max-width: 120px;
+    }
+
+    .open-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: var(--soft-white);
+        margin-left: auto;
+    }
+
+    .close-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--soft-white);
+        align-self: flex-end;
+        margin: 1rem;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--dark-brown), var(--darker-orange));
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+        margin-top: 3rem;
+    }
+
+    .nav-list li a {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+
+    /* Lessons Container */
+    .lessons-container {
+        padding: 1rem;
+    }
+
+    /* Level Filter Buttons */
+    .level-filter {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 20px;
+        min-width: 100px;
+    }
+
+    .filter-btn.active {
+        background-color: var(--dark-brown);
+        color: white;
+        transform: scale(1.05);
+    }
+
+    /* Lessons Grid */
+    .lessons-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .lesson-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-container {
+        aspect-ratio: 16/9;
+    }
+
+    .lesson-info {
+        padding: 1rem;
+    }
+
+    .lesson-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .lesson-meta {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .download-btn {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    /* Interactive Tools Section */
+    .interactive-tools {
+        margin-top: 2rem;
+    }
+
+    .tool-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .sheet-music-viewer,
+    .practice-exercises {
+        padding: 1rem;
+    }
+
+    .music-controls,
+    .exercise-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .music-controls button,
+    .start-exercise {
+        width: 100%;
+        padding: 0.7rem;
+    }
+
+    .key-selector,
+    .tempo-selector {
+        width: 100%;
+        padding: 0.6rem;
+        text-align: center;
+    }
+}
+
+/* Very Small Screens */
+@media screen and (max-width: 480px) {
+    .nav {
+        width: 90%;
+    }
+
+    .filter-btn {
+        min-width: 80px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .lesson-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .lesson-meta {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+}
+
+/* Loading Spinner Animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    border: 3px solid rgba(94, 45, 8, 0.1);
+    border-radius: 50%;
+    border-top: 3px solid var(--dark-brown);
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}

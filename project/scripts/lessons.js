@@ -11,6 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Mobile menu functionality
+    const openMenu = document.getElementById("open");
+    const closeMenu = document.getElementById("close");
+    const nav = document.getElementById("nav");
+
+    if (openMenu && closeMenu && nav) {
+        openMenu.addEventListener("click", () => {
+            nav.classList.add("active");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            nav.classList.remove("active");
+        });
+    }
+
     // Display lessons in a responsive, accessible grid
     const displayLessons = (lessons) => {
         const grid = document.querySelector('.lessons-grid');
