@@ -1,11 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // API Integration - Fetch lessons from JSON file
+    // Fetch lessons from JSON file
     const fetchLessons = async () => {
         try {
             const response = await fetch('data/lessons.json');
-            if (!response.ok) {
-                throw new Error('Failed to fetch lessons');
-            }
+            if (!response.ok) throw new Error('Failed to fetch lessons');
             return await response.json();
         } catch (error) {
             console.error('Error loading lessons:', error);
@@ -13,31 +11,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Display lessons in the grid
+    // Display lessons in a responsive, accessible grid
     const displayLessons = (lessons) => {
         const grid = document.querySelector('.lessons-grid');
-        grid.innerHTML = ''; // Clear loading spinner
+        grid.innerHTML = ''; // Clear any existing content
 
         lessons.forEach(lesson => {
-            const lessonCard = document.createElement('div');
+            const lessonCard = document.createElement('article');
             lessonCard.className = `lesson-card ${lesson.level.toLowerCase()}`;
             lessonCard.dataset.level = lesson.level.toLowerCase();
+            lessonCard.setAttribute('tabindex', '0');
+            lessonCard.setAttribute('role', 'region');
+            lessonCard.setAttribute('aria-label', `Lesson: ${lesson.title}`);
+
             lessonCard.innerHTML = `
                 <div class="video-container">
-                    <iframe src="${lesson.videoUrl}" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            loading="lazy"></iframe>
+                    <iframe 
+                        src="${lesson.videoUrl}" 
+                        title="${lesson.title}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
                 </div>
                 <div class="lesson-info">
                     <h3>${lesson.title}</h3>
                     <div class="lesson-meta">
-                        <span>Level: ${lesson.level}</span>
-                        <span>Duration: ${lesson.duration}</span>
+                        <span><strong>Level:</strong> ${lesson.level}</span>
+                        <span><strong>Duration:</strong> ${lesson.duration}</span>
                     </div>
                     <p>${lesson.description}</p>
-                    <button class="download-btn" data-resource="${lesson.resourceUrl}">
+                    <button class="download-btn" data-resource="${lesson.resourceUrl}" aria-label="Download resources for ${lesson.title}">
                         Download Resources
                     </button>
                 </div>
@@ -46,53 +51,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Filter lessons by level
+    // Setup filter buttons with accessibility
     const setupFilterButtons = () => {
         const filterButtons = document.querySelectorAll('.filter-btn');
 
         filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
+            button.setAttribute('role', 'button');
+            button.setAttribute('tabindex', '0');
+
+            const filterLessons = () => {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
-                // Get filter level
                 const level = button.dataset.level.toLowerCase();
                 const allLessons = document.querySelectorAll('.lesson-card');
 
-                // Debugging: Log the filter action
-                console.log(`Filtering by: ${level}`);
-
                 allLessons.forEach(lesson => {
-                    const lessonLevel = lesson.dataset.level; // Get level from data attribute
+                    const lessonLevel = lesson.dataset.level;
                     const shouldShow = level === 'all' || lessonLevel === level;
-
-                    // Debugging: Log each lesson's status
-                    console.log(`Lesson: ${lesson.querySelector('h3').textContent}, Level: ${lessonLevel}, Show: ${shouldShow}`);
-
                     lesson.style.display = shouldShow ? 'block' : 'none';
                 });
+            };
+
+            // Click support
+            button.addEventListener('click', filterLessons);
+
+            // Keyboard accessibility
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    filterLessons();
+                }
             });
         });
     };
 
-    // Interactive tools functionality
-    const setupInteractiveTools = () => {
-        // ... (keep your existing interactive tools code)
+    // Setup download buttons to trigger file download
+    const setupDownloadButtons = () => {
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('download-btn')) {
+                const resourceUrl = e.target.dataset.resource;
+                if (resourceUrl) {
+                    const link = document.createElement('a');
+                    link.href = resourceUrl;
+                    link.download = ''; // Use the default filename from the URL
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else {
+                    alert('Resource not available.');
+                }
+            }
+        });
     };
 
-    // Initialize the page
+    const setupInteractiveTools = () => {
+        // Leave your existing metronome, tuner, etc. logic here
+    };
+
     const init = async () => {
         const lessons = await fetchLessons();
-
-        // Debugging: Log loaded lessons
-        console.log('Loaded lessons:', lessons);
-
         displayLessons(lessons);
         setupFilterButtons();
         setupInteractiveTools();
+        setupDownloadButtons(); // <-- Add this line
 
-        // Make sure highlightCurrentPage exists or add this:
         if (typeof highlightCurrentPage === 'function') {
             highlightCurrentPage();
         }
