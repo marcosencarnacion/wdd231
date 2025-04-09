@@ -5,9 +5,9 @@
         "sheet": "images/canon-sheet.webp"
     },
     "scales": {
-        "c": "assets/audio/scale-c.mp3",
-        "d": "assets/audio/scale-d.mp3",
-        "g": "assets/audio/scale-g.mp3"
+        "c": "resources/scale-c.mp3",
+        "d": "resources/scale-d.mp3",
+        "g": "resources/scale-g.mp3"
     },
     "rhythm": {
         "60": "assets/audio/rhythm-60bpm.mp3",
