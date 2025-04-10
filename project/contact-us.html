@@ -9,6 +9,14 @@
     <meta name="author" content="Marcos Encarnacion">
     <title>Sign Up for Violin Lessons | Contact Us | Violin Starter Hub</title>
 
+    <!-- Open Graph Meta Tags for Contact Us / Sign-Up Page -->
+    <meta property="og:title" content="Sign Up for Violin Lessons | Violin Starter Hub">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://marcosencarnacion.github.io/wdd231/project/images/violin-hero.webp">
+    <meta property="og:url" content="https://marcosencarnacion.github.io/wdd231/project/contact-us.html">
+    <meta property="og:description"
+        content="Ready to learn violin? Sign up for beginner-friendly violin lessons and start your musical journey with Violin Starter Hub.">
+
     <!-- Fonts -->
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&family=Pacifico&display=swap"
@@ -49,8 +57,137 @@
         </nav>
     </header>
 
-    <main>
-        
+    <main class="lessons-main">
+        <h1>Violin Lessons Sign-Up</h1>
+
+        <div class="form-lessons-container">
+            <div class="application-form">
+                <h2>Student Application Form</h2>
+                <form method="GET" action="thankyou.html" class="lesson-form">
+                    <label>First Name <input type="text" name="first" required autocomplete="given-name"
+                            title="Your First Name"></label>
+                    <label>Last Name <input type="text" name="last" required autocomplete="family-name"
+                            title="Your Last Name"></label>
+                    <label>Email <input type="email" name="email" required placeholder="example@email.com"
+                            title="Your Email" autocomplete="email"></label>
+                    <label>Phone <input type="tel" name="phone" required autocomplete="tel"
+                            title="A Phone Number with dashes" placeholder="987-555-1234"></label>
+
+                    <label>Age <input type="number" name="age" min="5" max="99" required title="Your Age"></label>
+
+                    <label>Years of Violin Experience
+                        <select name="experience" required>
+                            <option value="">Select...</option>
+                            <option value="0">Beginner (0 years)</option>
+                            <option value="1-2">1-2 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="5+">5+ years</option>
+                        </select>
+                    </label>
+
+                    <div class="radio-group">
+                        <h3>Lesson Focus</h3>
+                        <label><input type="radio" name="style" value="classical" checked> <span>Classical
+                                Violin</span></label>
+                        <label><input type="radio" name="style" value="jazz"> <span>Jazz Violin</span></label>
+                        <label><input type="radio" name="style" value="covers"> <span>Covers Violin</span></label>
+                        <label><input type="radio" name="style" value="performing"> <span>Performing
+                                Violin</span></label>
+                    </div>
+
+                    <label>Preferred Lesson Frequency
+                        <select name="frequency" required>
+                            <option value="">Select...</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="biweekly">Bi-weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="intensive">Intensive (multiple per week)</option>
+                        </select>
+                    </label>
+
+                    <label>Additional Notes
+                        <textarea name="notes" title="Tell us about your musical goals" rows="4"></textarea>
+                    </label>
+
+                    <input type="hidden" name="timestamp" id="timestamp">
+                    <input type="submit" value="Apply for Lessons">
+                </form>
+            </div>
+
+            <section class="lessons-container">
+                <h2>Lesson Specializations</h2>
+
+                <div class="lesson-card" id="classical-card">
+                    <h3>Classical Violin</h3>
+                    <button id="openClassical">Learn More</button>
+                    <dialog id="classicalDialog">
+                        <h2>Classical Violin Training</h2>
+                        <p><strong>Curriculum includes:</strong></p>
+                        <ul>
+                            <li>Mastery of standard classical repertoire</li>
+                            <li>Proper bowing techniques and posture</li>
+                            <li>Sight-reading and music theory</li>
+                            <li>Preparation for auditions and competitions</li>
+                        </ul>
+                        <p><strong>Recommended for:</strong> Students interested in orchestral playing or pursuing music
+                            degrees</p>
+                        <button id="closeClassical" class="close-button">Close</button>
+                    </dialog>
+                </div>
+
+                <div class="lesson-card" id="jazz-card">
+                    <h3>Jazz Violin</h3>
+                    <button id="openJazz">Learn More</button>
+                    <dialog id="jazzDialog">
+                        <h2>Jazz Violin Training</h2>
+                        <p><strong>Curriculum includes:</strong></p>
+                        <ul>
+                            <li>Improvisation techniques</li>
+                            <li>Jazz harmony and theory</li>
+                            <li>Swing rhythm and syncopation</li>
+                            <li>Playing with rhythm sections</li>
+                        </ul>
+                        <p><strong>Recommended for:</strong> Students interested in jazz ensembles or fusion styles</p>
+                        <button id="closeJazz" class="close-button">Close</button>
+                    </dialog>
+                </div>
+
+                <div class="lesson-card" id="covers-card">
+                    <h3>Covers Violin</h3>
+                    <button id="openCovers">Learn More</button>
+                    <dialog id="coversDialog">
+                        <h2>Covers Violin Training</h2>
+                        <p><strong>Curriculum includes:</strong></p>
+                        <ul>
+                            <li>Learning popular songs and melodies</li>
+                            <li>Playing by ear</li>
+                            <li>Adapting songs for violin</li>
+                            <li>Basic recording techniques</li>
+                        </ul>
+                        <p><strong>Recommended for:</strong> Students who want to play contemporary music or perform
+                            covers</p>
+                        <button id="closeCovers" class="close-button">Close</button>
+                    </dialog>
+                </div>
+
+                <div class="lesson-card" id="performing-card">
+                    <h3>Performing Violin</h3>
+                    <button id="openPerforming">Learn More</button>
+                    <dialog id="performingDialog">
+                        <h2>Performing Violin Training</h2>
+                        <p><strong>Curriculum includes:</strong></p>
+                        <ul>
+                            <li>Stage presence and performance techniques</li>
+                            <li>Overcoming performance anxiety</li>
+                            <li>Building a repertoire</li>
+                            <li>Microphone and amplification techniques</li>
+                        </ul>
+                        <p><strong>Recommended for:</strong> Students interested in live performances or busking</p>
+                        <button id="closePerforming" class="close-button">Close</button>
+                    </dialog>
+                </div>
+            </section>
+        </div>
     </main>
 
 
@@ -77,5 +214,5 @@
         <p>©<span id="currentyear"></span> 🌴 Marcos Encarnacion 🌴 Dominican Republic</p>
         <p id="lastModified"></p>
 
-        <p><a href="references.html" target="_blank">References</a></p>
+        <p><a href="references.html" target="_blank">Attributions</a></p>
     </footer>
