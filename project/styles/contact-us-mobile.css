@@ -1,0 +1,66 @@
+/* Mobile Styles - header */
+@media screen and (max-width: 768px) {
+
+    .nav-list li a.active {
+        border-left: 3px solid var(--warm-yellow);
+        padding-left: 0.5rem;
+    }
+
+    /* Header and Navigation */
+    header {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        max-width: 120px;
+    }
+
+    .open-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: var(--soft-white);
+        margin-left: auto;
+    }
+
+    .close-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--soft-white);
+        align-self: flex-end;
+        margin: 1rem;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--dark-brown), var(--darker-orange));
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+        margin-top: 3rem;
+    }
+
+    .nav-list li a {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+}
