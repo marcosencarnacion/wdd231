@@ -26,29 +26,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Display lessons in a responsive, accessible grid
+    // Display lessons with optimized video loading
     const displayLessons = (lessons) => {
         const grid = document.querySelector('.lessons-grid');
-        grid.innerHTML = ''; // Clear any existing content
+        grid.innerHTML = '';
 
         lessons.forEach(lesson => {
-            const lessonCard = document.createElement('article');
+            const videoId = extractVideoId(lesson.videoUrl);
+            const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+            const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+            const lessonCard = document.createElement('a');
             lessonCard.className = `lesson-card ${lesson.level.toLowerCase()}`;
             lessonCard.dataset.level = lesson.level.toLowerCase();
-            lessonCard.setAttribute('tabindex', '0');
-            lessonCard.setAttribute('role', 'region');
-            lessonCard.setAttribute('aria-label', `Lesson: ${lesson.title}`);
+            lessonCard.href = youtubeUrl;
+            lessonCard.target = "_blank";
+            lessonCard.rel = "noopener noreferrer";
+            lessonCard.setAttribute('aria-label', `Watch ${lesson.title} on YouTube`);
 
             lessonCard.innerHTML = `
-                <div class="video-container">
-                    <iframe 
-                        src="${lesson.videoUrl}" 
-                        title="${lesson.title}" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
+                <div class="video-thumbnail-container">
+                    <img src="${thumbnailUrl}" 
+                         alt="${lesson.title} thumbnail" 
+                         class="video-thumbnail"
+                         loading="lazy"
+                         width="320"
+                         height="180">
+                    <div class="play-overlay">
+                        <i class="bi bi-play-circle-fill"></i>
+                    </div>
                 </div>
                 <div class="lesson-info">
                     <h3>${lesson.title}</h3>
@@ -57,12 +63,42 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span><strong>Duration:</strong> ${lesson.duration}</span>
                     </div>
                     <p>${lesson.description}</p>
-                    <button class="download-btn" data-resource="${lesson.resourceUrl}" aria-label="Download resources for ${lesson.title}">
+                    <button class="download-btn" data-resource="${lesson.resourceUrl}" 
+                            aria-label="Download resources for ${lesson.title}">
                         Download Resources
                     </button>
                 </div>
             `;
             grid.appendChild(lessonCard);
+        });
+
+        // Prevent download button from triggering the card link
+        setupDownloadButtons();
+    };
+
+
+    // Extract YouTube video ID from URL
+    const extractVideoId = (url) => {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    };
+
+    // Setup video players with click-to-load
+    const setupVideoPlayers = () => {
+        document.querySelectorAll('.video-container').forEach(container => {
+            const playBtn = container.querySelector('.play-button');
+            const thumbnail = container.querySelector('.video-thumbnail');
+
+            playBtn.addEventListener('click', () => {
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube.com/embed/${thumbnail.dataset.videoId}?autoplay=1&rel=0`;
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                container.innerHTML = '';
+                container.appendChild(iframe);
+            });
         });
     };
 
@@ -105,16 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const setupDownloadButtons = () => {
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('download-btn')) {
+                e.preventDefault();
+                e.stopPropagation(); // Prevent the card link from being triggered
                 const resourceUrl = e.target.dataset.resource;
                 if (resourceUrl) {
-                    const link = document.createElement('a');
-                    link.href = resourceUrl;
-                    link.download = ''; // Use the default filename from the URL
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                } else {
-                    alert('Resource not available.');
+                    window.open(resourceUrl, '_blank');
                 }
             }
         });
@@ -124,32 +155,32 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const res = await fetch('data/tools.json');
             const tools = await res.json();
-    
+
             // Sheet Music Controls
             const sheetMusicAudio = new Audio(tools.sheetMusic.audio);
             const playBtn = document.querySelector('.play-btn');
             const slowBtn = document.querySelector('.slow-btn');
             const loopBtn = document.querySelector('.loop-btn');
             const sheetImgs = document.querySelectorAll('.sheet-pages img');
-    
+
             if (sheetImgs.length === 1) {
                 sheetImgs[0].src = tools.sheetMusic.sheet;
             }
-    
+
             if (playBtn) {
                 playBtn.addEventListener('click', () => {
                     sheetMusicAudio.playbackRate = 1;
                     sheetMusicAudio.play();
                 });
             }
-    
+
             if (slowBtn) {
                 slowBtn.addEventListener('click', () => {
                     sheetMusicAudio.playbackRate = 0.75;
                     sheetMusicAudio.play();
                 });
             }
-    
+
             if (loopBtn) {
                 loopBtn.addEventListener('click', () => {
                     sheetMusicAudio.currentTime = 0;
@@ -157,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     sheetMusicAudio.play();
                 });
             }
-    
+
             // ✅ Scale Trainer
             const scaleBtn = document.querySelector('[data-exercise="scales"] .start-exercise');
             if (scaleBtn) {
@@ -167,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     scaleAudio.play();
                 });
             }
-    
+
             // ✅ Rhythm Trainer
             const rhythmBtn = document.querySelector('[data-exercise="rhythm"] .start-exercise');
             if (rhythmBtn) {
@@ -177,12 +208,61 @@ document.addEventListener("DOMContentLoaded", () => {
                     rhythmAudio.play();
                 });
             }
-    
+
         } catch (err) {
             console.error("Failed to load interactive tools:", err);
         }
-    
 
+        // 🎵 Metronome Tool
+        let bpm = 80;
+        let metronomeInterval = null;
+
+        const bpmInput = document.getElementById('bpm');
+        const bpmDisplay = document.getElementById('bpm-display');
+        const startMetronomeBtn = document.getElementById('start-metronome');
+        const stopMetronomeBtn = document.getElementById('stop-metronome');
+
+        const playClick = () => {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            oscillator.type = 'square';
+            oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.05);
+        };
+
+        if (bpmInput && bpmDisplay) {
+            bpmInput.addEventListener('input', () => {
+                bpm = parseInt(bpmInput.value);
+                bpmDisplay.textContent = bpm;
+                if (metronomeInterval) {
+                    clearInterval(metronomeInterval);
+                    metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
+                }
+            });
+        }
+
+        if (startMetronomeBtn) {
+            startMetronomeBtn.addEventListener('click', () => {
+                if (!metronomeInterval) {
+                    metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
+                }
+            });
+        }
+
+        if (stopMetronomeBtn) {
+            stopMetronomeBtn.addEventListener('click', () => {
+                clearInterval(metronomeInterval);
+                metronomeInterval = null;
+            });
+        }
     };
 
     const init = async () => {

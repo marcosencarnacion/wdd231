@@ -2,7 +2,7 @@
     {
         "title": "Violin Basics: Holding the Bow",
         "level": "Beginner",
-        "videoUrl": "https://www.youtube.com/embed/_CZ48B8U_do?start=16",
+        "videoUrl": "https://www.youtube.com/watch?v=_CZ48B8U_do",
         "duration": "2:37",
         "description": "Learn the proper way to hold your violin bow for optimal control and sound production.",
         "resourceUrl": "/resources/bow-hold.pdf"
@@ -10,7 +10,7 @@
     {
         "title": "First Position Scales",
         "level": "Beginner",
-        "videoUrl": "https://www.youtube.com/embed/XYkmzA5G2xQ",
+        "videoUrl": "https://youtu.be/XYkmzA5G2xQ",
         "duration": "5:22",
         "description": "Master your first major scales in first position with proper finger placement.",
         "resourceUrl": "/resources/first-position-scales.pdf"
@@ -26,7 +26,7 @@
     {
         "title": "Shifting to Third Position",
         "level": "Intermediate",
-        "videoUrl": "https://www.youtube.com/embed/-SSCtXMNh0I",
+        "videoUrl": "https://youtu.be/-SSCtXMNh0I",
         "duration": "5:38",
         "description": "Learn how to smoothly shift between first and third positions.",
         "resourceUrl": "/resources/position-shifting.pdf"
@@ -34,7 +34,7 @@
     {
         "title": "Double Stops Masterclass",
         "level": "Advanced",
-        "videoUrl": "https://www.youtube.com/embed/h1eTDFYcBNs",
+        "videoUrl": "https://www.youtube.com/watch?v=h1eTDFYcBNs",
         "duration": "12:50",
         "description": "Advanced techniques for playing perfect double stops in tune.",
         "resourceUrl": "/resources/double-stops.pdf"
