@@ -1,9 +1,157 @@
-<div data-exercise="metronome" class="exercise-card">
-    <h3>Metronome</h3>
-    <label for="bpm">Tempo (BPM): <span id="bpm-display">80</span></label>
-    <input type="range" id="bpm" min="40" max="200" value="80">
-    <div class="metronome-controls">
-        <button id="start-metronome">Start</button>
-        <button id="stop-metronome">Stop</button>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Interactive violin practice tools including metronome and tuner. Join a supportive community to share tips and stay motivated.">
+    <meta name="author" content="Marcos Encarnacion">
+    <title>Practice Tools & Violin Community | Violin Starter Hub</title>
+
+    <!-- Fonts -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&family=Pacifico&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/practice-tools.css">
+    <link rel="stylesheet" href="styles/practice-tools-mobile.css">
+
+    <!-- JavaScript Modules for this page -->
+    <script src="scripts/tools.js" type="module" defer></script>
+    <script src="scripts/index.js" type="module" defer></script>
+</head>
+
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo-link" aria-label="Go to homepage">
+            <img src="images/violin-logo.webp" alt="Violin Starter Hub Logo" class="logo" loading="lazy">
+        </a>
+
+        <button id="open" class="open-menu" aria-label="Open menu"><i class="bi bi-list"></i></button>
+
+        <nav class="nav" id="nav" aria-label="Primary navigation">
+            <button id="close" class="close-menu" aria-label="Close menu"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="practice-tools.html" class="active">Practice Tools & Community</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div data-exercise="metronome" class="exercise-card">
+            <h3>Metronome</h3>
+            <label for="bpm">Tempo (BPM): <span id="bpm-display">80</span></label>
+            <input type="range" id="bpm" min="40" max="200" value="80">
+            <div class="metronome-controls">
+                <button id="start-metronome">Start</button>
+                <button id="stop-metronome">Stop</button>
+            </div>
+        </div>
+
+        <div class="metronome-beat">
+            <div class="beat-indicator"></div>
+        </div>
+
+        <section id="tuner">
+            <h2>🎻 Violin Tuner</h2>
+            <p id="tuner-note">Note: --</p>
+            <p id="tuner-frequency">Frequency: -- Hz</p>
+
+            <!-- Add this visual tuner indicator -->
+            <div class="tuner-visual">
+                <div class="tuner-scale">
+                    <div class="tuner-mark"></div>
+                    <div class="tuner-mark"></div>
+                    <div class="tuner-mark center"></div>
+                    <div class="tuner-mark"></div>
+                    <div class="tuner-mark"></div>
+                </div>
+                <div class="tuner-needle" id="tuner-needle"></div>
+            </div>
+
+            <button id="start-tuner">Start Tuner</button>
+        </section>
+
+        <!-- Violin Fingering Chart -->
+        <section id="fingering-chart">
+            <h2>🎻 Violin Fingering Chart</h2>
+            <div class="fingering-controls">
+                <label for="string-select">Select String:</label>
+                <select id="string-select">
+                    <option value="G">G String</option>
+                    <option value="D">D String</option>
+                    <option value="A">A String</option>
+                    <option value="E">E String</option>
+                </select>
+            </div>
+            <div class="fingerboard" id="fingerboard"></div>
+            <div class="fingering-notes" id="fingering-notes"></div>
+        </section>
+
+        <!-- Community Comments Section -->
+        <section id="comments-section">
+            <h2>💬 Community Comments</h2>
+            <form id="comment-form">
+                <label for="comment-name">Name:</label>
+                <input type="text" id="comment-name" required>
+                <label for="comment-text">Comment:</label>
+                <textarea id="comment-text" required></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+            <div class="comments-container" id="comments-container"></div>
+        </section>
+
+        <!-- Recommended Resources Section -->
+        <section id="resources-section">
+            <h2>📚 Recommended Violin Resources</h2>
+            <div class="resources-container" id="resources-container"></div>
+        </section>
+
+
+
+
+
+
+    </main>
+
+
+
+    <footer>
+        <div class="social-icons">
+            <!-- Source: The Social Media URLs used in the footer are from the Dominican Republic Ministry of Tourism webpage-->
+            <a href="https://www.facebook.com/ESCUELAFERNANDOSOR/" target="_blank" aria-label="Facebook"
+                class="btn btn-primary rounded-circle">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://x.com/EscFernandoSor" target="_blank" aria-label="Twitter">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCZ_gRS8kQJqa1mF3kuEI5Yg" target="_blank" aria-label="Youtube">
+                <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/escuelafernandosor/" target="_blank" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+        </div>
+
+        <hr>
+
+        <p>©<span id="currentyear"></span> 🌴 Marcos Encarnacion 🌴 Dominican Republic</p>
+        <p id="lastModified"></p>
+
+        <p><a href="references.html" target="_blank">References</a></p>
+    </footer>
+
+</body>

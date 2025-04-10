@@ -1,0 +1,616 @@
+/* styles-desktop.css - Rediseño con paleta de colores */
+:root {
+    --dark-brown: #5e2d08;
+    --deep-charcoal: #000000;
+    --soft-white: #FFFFFF;
+    --darker-orange: #B45C00;
+    --warm-yellow: #F4A900;
+    --chesnut: #502f16;
+}
+
+/* ======================🎶 Metronome Styles ====================== */
+[data-exercise="metronome"] {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+[data-exercise="metronome"] h3 {
+    color: var(--dark-brown);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-family: 'Lora', serif;
+}
+
+/* BPM Controls */
+[data-exercise="metronome"] label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-brown);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+}
+
+#bpm {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+    height: 8px;
+    background: var(--light-neutral);
+    border-radius: 4px;
+    outline: none;
+}
+
+#bpm::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    background: var(--dark-brown);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#bpm::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    background: var(--chesnut);
+}
+
+#bpm-display {
+    font-weight: bold;
+    color: var(--chesnut);
+    font-size: 1.3rem;
+    display: inline-block;
+    min-width: 40px;
+}
+
+/* Beat Visualizer */
+.metronome-beat {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: var(--light-neutral);
+    margin: 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.beat-indicator {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--chesnut);
+    transform: scale(0);
+    transition: transform 0.1s ease;
+}
+
+.beat-indicator.active {
+    transform: scale(1.2);
+    background-color: var(--dark-brown);
+}
+
+/* Control Buttons */
+.metronome-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#start-metronome,
+#stop-metronome {
+    background-color: var(--dark-brown);
+    color: var(--soft-white);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 120px;
+}
+
+#start-metronome:hover,
+#stop-metronome:hover {
+    background-color: var(--chesnut);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#start-metronome:active,
+#stop-metronome:active {
+    transform: translateY(0);
+}
+
+#stop-metronome {
+    background-color: #f0f0f0;
+    color: var(--dark-brown);
+    border: 2px solid var(--dark-brown);
+}
+
+#stop-metronome:hover {
+    background-color: #e0e0e0;
+}
+
+/* Tap Tempo Feature */
+.tap-tempo {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--light-neutral);
+}
+
+.tap-tempo button {
+    background-color: transparent;
+    border: 2px solid var(--chesnut);
+    color: var(--chesnut);
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.tap-tempo button:hover {
+    background-color: var(--chesnut);
+    color: var(--soft-white);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    [data-exercise="metronome"] {
+        padding: 1.5rem;
+    }
+
+    [data-exercise="metronome"] h3 {
+        font-size: 1.5rem;
+    }
+
+    .metronome-beat {
+        height: 70px;
+        width: 70px;
+    }
+
+    #start-metronome,
+    #stop-metronome {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+        min-width: 110px;
+    }
+}
+
+
+
+/* ======================🎻 Violin Tuner Styles ====================== */
+#tuner {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+#tuner h2 {
+    color: var(--dark-brown);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-family: 'Lora', serif;
+}
+
+#tuner-note {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dark-brown);
+    margin: 1rem 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#tuner-frequency {
+    font-size: 1.5rem;
+    color: var(--chesnut);
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Tuner Visual Indicator */
+.tuner-visual {
+    margin: 2rem auto;
+    position: relative;
+    height: 80px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.tuner-scale {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 40px;
+    border-bottom: 2px solid var(--dark-brown);
+    position: relative;
+}
+
+.tuner-mark {
+    width: 1px;
+    height: 15px;
+    background-color: var(--chesnut);
+    position: relative;
+    bottom: 0;
+}
+
+.tuner-mark.center {
+    height: 25px;
+    background-color: var(--dark-brown);
+    width: 2px;
+}
+
+.tuner-needle {
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    background-color: var(--dark-brown);
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) rotate(0deg);
+    transform-origin: bottom center;
+    transition: transform 0.2s ease;
+    z-index: 2;
+    border-radius: 2px;
+}
+
+/* Cent Marks - Optional */
+.tuner-cents {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+    color: var(--chesnut);
+    font-size: 0.8rem;
+}
+
+/* Start Button */
+#start-tuner {
+    background-color: var(--dark-brown);
+    color: var(--soft-white);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#start-tuner:hover {
+    background-color: var(--chesnut);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#start-tuner:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #tuner {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    #tuner h2 {
+        font-size: 1.5rem;
+    }
+
+    #tuner-note {
+        font-size: 2rem;
+    }
+
+    #tuner-frequency {
+        font-size: 1.2rem;
+    }
+
+    .tuner-visual {
+        height: 70px;
+    }
+
+    .tuner-needle {
+        height: 45px;
+    }
+
+    #start-tuner {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Color States for Needle */
+.tuner-needle.in-tune {
+    background-color: #4CAF50 !important;
+    /* Green */
+}
+
+.tuner-needle.close {
+    background-color: #FFC107 !important;
+    /* Yellow */
+}
+
+.tuner-needle.out-of-tune {
+    background-color: #F44336 !important;
+    /* Red */
+}
+
+/* ======================🎻 Fingering Chart Styles ====================== */
+#fingering-chart {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+#fingering-chart h2 {
+    color: var(--dark-brown);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-family: 'Lora', serif;
+}
+
+.fingering-controls {
+    margin-bottom: 1.5rem;
+}
+
+.fingering-controls label {
+    margin-right: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-brown);
+}
+
+.fingering-controls select {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--dark-brown);
+    background-color: var(--soft-white);
+    color: var(--dark-brown);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fingerboard {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: var(--chesnut);
+    border-radius: 8px;
+    position: relative;
+}
+
+.fingerboard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--warm-yellow);
+}
+
+.fingerboard-position {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--soft-white);
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.open-string {
+    background-color: var(--dark-brown);
+}
+
+.finger-position {
+    background-color: var(--darker-orange);
+}
+
+.fingering-notes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+}
+
+.fingering-note {
+    width: 40px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: var(--dark-brown);
+}
+
+.natural-note {
+    color: var(--chesnut);
+    font-size: 1.2em;
+}
+
+/* ======================💬 Comments Section Styles ====================== */
+#comments-section {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+#comments-section h2 {
+    color: var(--dark-brown);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-family: 'Lora', serif;
+}
+
+#comment-form {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#comment-form label {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-brown);
+    font-weight: bold;
+}
+
+#comment-form input,
+#comment-form textarea {
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid var(--dark-brown);
+    font-family: 'Montserrat', sans-serif;
+}
+
+#comment-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#comment-form button {
+    background-color: var(--dark-brown);
+    color: var(--soft-white);
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#comment-form button:hover {
+    background-color: var(--chesnut);
+}
+
+.comments-container {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--dark-brown);
+}
+
+.comment h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--dark-brown);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.comment-text {
+    margin: 0;
+    line-height: 1.5;
+    color: var(--deep-charcoal);
+}
+
+/* ======================📚 Resources Section Styles ====================== */
+#resources-section {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+#resources-section h2 {
+    color: var(--dark-brown);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-family: 'Lora', serif;
+}
+
+.resources-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.resource-category {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.resource-category h3 {
+    color: var(--dark-brown);
+    margin-top: 0;
+    font-family: 'Lora', serif;
+    border-bottom: 2px solid var(--warm-yellow);
+    padding-bottom: 0.5rem;
+}
+
+.resource-category ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.resource-category li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.resource-category li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    #fingering-chart,
+    #comments-section,
+    #resources-section {
+        padding: 1.5rem;
+    }
+
+    .resources-container {
+        grid-template-columns: 1fr;
+    }
+}
