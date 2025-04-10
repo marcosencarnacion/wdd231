@@ -1,4 +1,4 @@
-/* Mobile Styles - index-mobile.css */
+/* Mobile Styles - header */
 @media screen and (max-width: 768px) {
 
     .nav-list li a.active {
@@ -62,5 +62,224 @@
     .nav-list li a {
         font-size: 1.2rem;
         padding: 0.5rem;
+    }
+}
+
+/* Mobile Styles for Practice Tools Page */
+@media screen and (max-width: 768px) {
+
+    /* General main content adjustments */
+    main {
+        padding: 0.5rem;
+    }
+
+    /* Metronome adjustments */
+    [data-exercise="metronome"] {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        max-width: 100%;
+    }
+
+    [data-exercise="metronome"] h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #bpm {
+        max-width: 100%;
+    }
+
+    .metronome-beat {
+        height: 70px;
+        width: 70px;
+        margin: 1rem auto;
+    }
+
+    .metronome-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #start-metronome,
+    #stop-metronome {
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    /* Tuner adjustments */
+    #tuner {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        max-width: 100%;
+    }
+
+    #tuner h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #tuner-note {
+        font-size: 2rem;
+    }
+
+    #tuner-frequency {
+        font-size: 1.2rem;
+    }
+
+    .tuner-visual {
+        height: 60px;
+        margin: 1rem auto;
+    }
+
+    .tuner-needle {
+        height: 40px;
+    }
+
+    #start-tuner {
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    /* Fingering chart adjustments */
+    #fingering-chart {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        max-width: 100%;
+    }
+
+    #fingering-chart h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .fingering-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .fingering-controls select {
+        width: 100%;
+    }
+
+    .fingerboard {
+        padding: 0.5rem;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    .fingerboard-position {
+        min-width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .fingering-notes {
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    .fingering-note {
+        min-width: 35px;
+        font-size: 0.9rem;
+    }
+
+    /* Comments section adjustments */
+    #comments-section {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        max-width: 100%;
+    }
+
+    #comments-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #comment-form {
+        gap: 0.8rem;
+    }
+
+    .comment {
+        padding: 1rem;
+    }
+
+    /* Resources section adjustments */
+    #resources-section {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        max-width: 100%;
+    }
+
+    #resources-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .resources-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .resource-category {
+        padding: 1rem;
+    }
+
+    /* Horizontal scroll for elements that might overflow */
+    .fingerboard,
+    .fingering-notes {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .fingerboard::-webkit-scrollbar,
+    .fingering-notes::-webkit-scrollbar {
+        display: none;
+        /* Safari and Chrome */
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media screen and (max-width: 480px) {
+
+    /* Make buttons and inputs more touch-friendly */
+    #start-metronome,
+    #stop-metronome,
+    #start-tuner,
+    #comment-form button {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+
+    /* Adjust form elements */
+    #comment-form input,
+    #comment-form textarea,
+    .fingering-controls select {
+        padding: 1rem;
+    }
+
+    /* Reduce margins further */
+    [data-exercise="metronome"],
+    #tuner,
+    #fingering-chart,
+    #comments-section,
+    #resources-section {
+        padding: 1rem;
+        margin: 0.5rem auto;
+    }
+
+    /* Make beat indicator smaller */
+    .metronome-beat {
+        height: 60px;
+        width: 60px;
+    }
+
+    .beat-indicator {
+        width: 25px;
+        height: 25px;
     }
 }
