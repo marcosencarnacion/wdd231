@@ -49,6 +49,11 @@ header h1 {
     transform: scale(1.05);
 }
 
+img.logo {
+    width: 150px;
+    height: auto;
+  }
+
 .open-menu,
 .close-menu {
     display: none;
@@ -140,6 +145,7 @@ header h1 {
 .hero-image {
     flex: 1;
     border-radius: 10px;
+    min-height: 400px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
