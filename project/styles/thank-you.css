@@ -1,0 +1,139 @@
+:root {
+    --dark-brown: #5e2d08;
+    --deep-charcoal: #000000;
+    --soft-white: #FFFFFF;
+    --darker-orange: #B45C00;
+    --warm-yellow: #F4A900;
+    --chesnut: #502f16;
+}
+
+/* Main container */
+.thank-you-container {
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    min-height: 70vh;
+}
+
+.thank-you-container h1 {
+    text-align: center;
+    color: var(--dark-brown);
+    font-family: 'Lora', serif;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* Thank you message */
+.thank-you-message {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.thank-you-message p {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-brown);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* User details section */
+.user-details {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-details h2 {
+    color: var(--dark-brown);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-family: 'Lora', serif;
+    text-align: center;
+}
+
+.detail-item {
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(94, 45, 8, 0.1);
+}
+
+.detail-label {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-brown);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.detail-value {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--deep-charcoal);
+    display: block;
+    padding-left: 1rem;
+    font-size: 1rem;
+}
+
+/* Home button */
+.home-button {
+    display: block;
+    width: 200px;
+    margin: 2rem auto 0;
+    background-color: var(--dark-brown);
+    color: var(--soft-white);
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-decoration: none;
+}
+
+.home-button:hover {
+    background-color: var(--chesnut);
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .thank-you-container {
+        padding: 1.5rem;
+    }
+
+    .thank-you-message,
+    .user-details {
+        padding: 1.5rem;
+    }
+
+    .thank-you-container h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .thank-you-container {
+        padding: 1rem;
+    }
+
+    .thank-you-message p {
+        font-size: 1rem;
+    }
+
+    .detail-label {
+        font-size: 1rem;
+    }
+
+    .home-button {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
