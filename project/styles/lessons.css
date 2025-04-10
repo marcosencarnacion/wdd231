@@ -123,11 +123,6 @@
 .lesson-info {
     padding: 1.5rem;
     background-color: var(--soft-white);
-    pointer-events: none;
-}
-
-.lesson-info * {
-    pointer-events: auto;
 }
 
 .lesson-info h3 {
