@@ -194,17 +194,12 @@
     transition: background-color 0.3s ease;
 }
 
-.music-display button:hover {
-    background-color: #5c0000;
-    /* slightly lighter red */
-}
-
+.music-display button:hover,
 .music-display button:active {
     background-color: #5c0000;
 }
 
-.sheet-music-viewer,
-.practice-exercises {
+.sheet-music-viewer {
     background-color: var(--soft-white);
     padding: 1.5rem;
     border-radius: 10px;
@@ -215,7 +210,6 @@
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    /* center it */
     background-color: var(--soft-white);
     padding: 2rem;
     border-radius: 10px;
