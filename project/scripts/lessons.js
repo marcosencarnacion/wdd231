@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Footer dates
         document.getElementById("currentyear").textContent = new Date().getFullYear();
         document.getElementById("lastModified").textContent = `Last updated: ${document.lastModified}`;
-        
+
         // Highlight current page
         document.querySelectorAll('nav a').forEach(link => {
             if (window.location.pathname.endsWith(new URL(link.href).pathname)) {
