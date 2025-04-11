@@ -1,16 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Fetch lessons from JSON file
-    const fetchLessons = async () => {
-        try {
-            const response = await fetch('data/lessons.json');
-            if (!response.ok) throw new Error('Failed to fetch lessons');
-            return await response.json();
-        } catch (error) {
-            console.error('Error loading lessons:', error);
-            return [];
-        }
-    };
+import { fetchLessons, fetchTools } from './modules/api.js';
 
+document.addEventListener("DOMContentLoaded", () => {
     // Mobile menu functionality
     const openMenu = document.getElementById("open");
     const closeMenu = document.getElementById("close");
@@ -72,37 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
             grid.appendChild(lessonCard);
         });
 
-        // Prevent download button from triggering the card link
         setupDownloadButtons();
     };
 
-
-    // Extract YouTube video ID from URL
     const extractVideoId = (url) => {
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
         const match = url.match(regExp);
         return (match && match[2].length === 11) ? match[2] : null;
     };
 
-    // Setup video players with click-to-load
-    const setupVideoPlayers = () => {
-        document.querySelectorAll('.video-container').forEach(container => {
-            const playBtn = container.querySelector('.play-button');
-            const thumbnail = container.querySelector('.video-thumbnail');
-
-            playBtn.addEventListener('click', () => {
-                const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${thumbnail.dataset.videoId}?autoplay=1&rel=0`;
-                iframe.setAttribute('frameborder', '0');
-                iframe.setAttribute('allowfullscreen', '');
-                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                container.innerHTML = '';
-                container.appendChild(iframe);
-            });
-        });
-    };
-
-    // Setup filter buttons with accessibility
     const setupFilterButtons = () => {
         const filterButtons = document.querySelectorAll('.filter-btn');
 
@@ -124,10 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             };
 
-            // Click support
             button.addEventListener('click', filterLessons);
-
-            // Keyboard accessibility
             button.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -137,12 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Setup download buttons to trigger file download
     const setupDownloadButtons = () => {
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('download-btn')) {
                 e.preventDefault();
-                e.stopPropagation(); // Prevent the card link from being triggered
+                e.stopPropagation();
                 const resourceUrl = e.target.dataset.resource;
                 if (resourceUrl) {
                     window.open(resourceUrl, '_blank');
@@ -153,157 +117,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const setupInteractiveTools = async () => {
         try {
-            const res = await fetch('data/tools.json');
-            const tools = await res.json();
+            const tools = await fetchTools();
+            if (!tools) return;
 
             // Sheet Music Controls
             const sheetMusicAudio = new Audio(tools.sheetMusic.audio);
-            const playBtn = document.querySelector('.play-btn');
-            const slowBtn = document.querySelector('.slow-btn');
-            const loopBtn = document.querySelector('.loop-btn');
-            const sheetImgs = document.querySelectorAll('.sheet-pages img');
+            document.querySelector('.play-btn')?.addEventListener('click', () => {
+                sheetMusicAudio.playbackRate = 1;
+                sheetMusicAudio.play();
+            });
+            document.querySelector('.slow-btn')?.addEventListener('click', () => {
+                sheetMusicAudio.playbackRate = 0.75;
+                sheetMusicAudio.play();
+            });
+            document.querySelector('.loop-btn')?.addEventListener('click', () => {
+                sheetMusicAudio.currentTime = 0;
+                sheetMusicAudio.loop = true;
+                sheetMusicAudio.play();
+            });
 
-            if (sheetImgs.length === 1) {
-                sheetImgs[0].src = tools.sheetMusic.sheet;
-            }
-
-            if (playBtn) {
-                playBtn.addEventListener('click', () => {
-                    sheetMusicAudio.playbackRate = 1;
-                    sheetMusicAudio.play();
-                });
-            }
-
-            if (slowBtn) {
-                slowBtn.addEventListener('click', () => {
-                    sheetMusicAudio.playbackRate = 0.75;
-                    sheetMusicAudio.play();
-                });
-            }
-
-            if (loopBtn) {
-                loopBtn.addEventListener('click', () => {
-                    sheetMusicAudio.currentTime = 0;
-                    sheetMusicAudio.loop = true;
-                    sheetMusicAudio.play();
-                });
-            }
-
-            // ✅ Scale Trainer
-            const scaleBtn = document.querySelector('[data-exercise="scales"] .start-exercise');
-            if (scaleBtn) {
-                scaleBtn.addEventListener('click', () => {
-                    const key = document.querySelector('.key-selector').value;
-                    const scaleAudio = new Audio(tools.scales[key]);
-                    scaleAudio.play();
-                });
-            }
-
-            // ✅ Rhythm Trainer
-            const rhythmBtn = document.querySelector('[data-exercise="rhythm"] .start-exercise');
-            if (rhythmBtn) {
-                rhythmBtn.addEventListener('click', () => {
-                    const tempo = document.querySelector('.tempo-selector').value;
-                    const rhythmAudio = new Audio(tools.rhythm[tempo]);
-                    rhythmAudio.play();
-                });
-            }
+            // Scale Trainer
+            document.querySelector('[data-exercise="scales"] .start-exercise')?.addEventListener('click', () => {
+                const key = document.querySelector('.key-selector').value;
+                new Audio(tools.scales[key]).play();
+            });
 
         } catch (err) {
             console.error("Failed to load interactive tools:", err);
         }
 
-        // 🎵 Metronome Tool
+        // Metronome Tool
         let bpm = 80;
         let metronomeInterval = null;
-
-        const bpmInput = document.getElementById('bpm');
-        const bpmDisplay = document.getElementById('bpm-display');
-        const startMetronomeBtn = document.getElementById('start-metronome');
-        const stopMetronomeBtn = document.getElementById('stop-metronome');
-
         const playClick = () => {
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioCtx.createOscillator();
             const gainNode = audioCtx.createGain();
-
             oscillator.type = 'square';
             oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime);
             gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-
             oscillator.connect(gainNode);
             gainNode.connect(audioCtx.destination);
-
             oscillator.start();
             oscillator.stop(audioCtx.currentTime + 0.05);
         };
 
-        if (bpmInput && bpmDisplay) {
-            bpmInput.addEventListener('input', () => {
-                bpm = parseInt(bpmInput.value);
-                bpmDisplay.textContent = bpm;
-                if (metronomeInterval) {
-                    clearInterval(metronomeInterval);
-                    metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
-                }
-            });
-        }
-
-        if (startMetronomeBtn) {
-            startMetronomeBtn.addEventListener('click', () => {
-                if (!metronomeInterval) {
-                    metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
-                }
-            });
-        }
-
-        if (stopMetronomeBtn) {
-            stopMetronomeBtn.addEventListener('click', () => {
+        document.getElementById('bpm')?.addEventListener('input', (e) => {
+            bpm = parseInt(e.target.value);
+            document.getElementById('bpm-display').textContent = bpm;
+            if (metronomeInterval) {
                 clearInterval(metronomeInterval);
-                metronomeInterval = null;
-            });
-        }
+                metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
+            }
+        });
+        document.getElementById('start-metronome')?.addEventListener('click', () => {
+            if (!metronomeInterval) {
+                metronomeInterval = setInterval(playClick, (60 / bpm) * 1000);
+            }
+        });
+        document.getElementById('stop-metronome')?.addEventListener('click', () => {
+            clearInterval(metronomeInterval);
+            metronomeInterval = null;
+        });
     };
 
     const init = async () => {
         const lessons = await fetchLessons();
         displayLessons(lessons);
         setupFilterButtons();
-        setupInteractiveTools();
-        setupDownloadButtons();
+        await setupInteractiveTools();
 
-        if (typeof highlightCurrentPage === 'function') {
-            highlightCurrentPage();
-        }
-    };
-
-    init();
-
-    // 1. Footer dates functionality
-    const currentYear = new Date().getFullYear();
-    const yearElement = document.getElementById("currentyear");
-    if (yearElement) {
-        yearElement.textContent = currentYear;
-    }
-
-    const lastModified = document.lastModified;
-    const modifiedElement = document.getElementById("lastModified");
-    if (modifiedElement) {
-        modifiedElement.textContent = `Last updated: ${lastModified}`;
-    }
-
-    const highlightCurrentPage = () => {
-        const navLinks = document.querySelectorAll('nav a');
-        const currentPath = window.location.pathname;
-
-        navLinks.forEach(link => {
-            const linkPath = new URL(link.href).pathname;
-
-            if (currentPath === linkPath || currentPath.endsWith(linkPath)) {
+        // Footer dates
+        document.getElementById("currentyear").textContent = new Date().getFullYear();
+        document.getElementById("lastModified").textContent = `Last updated: ${document.lastModified}`;
+        
+        // Highlight current page
+        document.querySelectorAll('nav a').forEach(link => {
+            if (window.location.pathname.endsWith(new URL(link.href).pathname)) {
                 link.classList.add('active');
-            } else {
-                link.classList.remove('active');
             }
         });
     };
+
+    init();
 });
