@@ -226,25 +226,26 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Individual button colors (optional) */
-.sheet-buttons .play-btn {
-    background-color: #5c0000;
-
+.exercise-controls button {
+    transition: all 0.3s ease;
+    background-color: var(--dark-brown);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.sheet-buttons .stop-btn {
-    background-color: #5c0000;
-
-}
-
-.sheet-buttons .loop-btn {
-    background-color: #5c0000;
-
-}
-
-.sheet-buttons .slow-btn {
-    background-color: #5c0000;
-
+.exercise-controls .play-btn:hover,
+.stop-btn:hover,
+.reset-btn:hover {
+    background-color: var(--darker-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Mobile adjustments */
