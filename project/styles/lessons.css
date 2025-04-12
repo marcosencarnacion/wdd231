@@ -200,6 +200,67 @@
     background-color: #5c0000;
 }
 
+/* Sheet Music Buttons - Hover Effects */
+.sheet-buttons button {
+    transition: all 0.3s ease;
+    background-color: var(--dark-brown);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sheet-buttons button:hover {
+    background-color: var(--darker-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sheet-buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual button colors (optional) */
+.sheet-buttons .play-btn {
+    background-color: #5c0000;
+
+}
+
+.sheet-buttons .stop-btn {
+    background-color: #5c0000;
+
+}
+
+.sheet-buttons .loop-btn {
+    background-color: #5c0000;
+
+}
+
+.sheet-buttons .slow-btn {
+    background-color: #5c0000;
+
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .sheet-buttons button:hover {
+        transform: none;
+
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .sheet-buttons button:active {
+        transform: scale(0.98);
+
+    }
+}
+
 .sheet-music-viewer {
     background-color: var(--soft-white);
     padding: 1.5rem;
