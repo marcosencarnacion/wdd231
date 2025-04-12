@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Sheet Music Controls
             const sheetMusicAudio = new Audio(tools.sheetMusic.audio);
+
             document.querySelector('.play-btn')?.addEventListener('click', () => {
                 sheetMusicAudio.playbackRate = 1;
                 sheetMusicAudio.play();
@@ -135,6 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 sheetMusicAudio.loop = true;
                 sheetMusicAudio.play();
             });
+
+            document.querySelector('.stop-btn')?.addEventListener('click', () => {
+                sheetMusicAudio.pause();
+                sheetMusicAudio.currentTime = 0;
+                sheetMusicAudio.loop = false;
+
+            })
 
             // Scale Trainer
             document.querySelector('[data-exercise="scales"] .start-exercise')?.addEventListener('click', () => {
