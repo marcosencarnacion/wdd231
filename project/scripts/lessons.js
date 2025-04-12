@@ -136,19 +136,69 @@ document.addEventListener("DOMContentLoaded", () => {
                 sheetMusicAudio.loop = true;
                 sheetMusicAudio.play();
             });
-
             document.querySelector('.stop-btn')?.addEventListener('click', () => {
                 sheetMusicAudio.pause();
                 sheetMusicAudio.currentTime = 0;
                 sheetMusicAudio.loop = false;
-
-            })
+            });
 
             // Scale Trainer
-            document.querySelector('[data-exercise="scales"] .start-exercise')?.addEventListener('click', () => {
-                const key = document.querySelector('.key-selector').value;
-                new Audio(tools.scales[key]).play();
-            });
+            let scaleAudio = null;
+            let currentScale = null;
+
+            const playScale = (key) => {
+                // Stop any current playing scale
+                if (scaleAudio) {
+                    scaleAudio.pause();
+                    scaleAudio.currentTime = 0;
+                }
+
+                // Create new audio for the selected scale
+                scaleAudio = new Audio(tools.scales[key]);
+                scaleAudio.play();
+                currentScale = key;
+            };
+
+            const stopScale = () => {
+                if (scaleAudio) {
+                    scaleAudio.pause();
+                    scaleAudio.currentTime = 0;
+                }
+            };
+
+            const resetScale = () => {
+                if (scaleAudio) {
+                    scaleAudio.currentTime = 0;
+                }
+            };
+
+            // Get all the scale control elements
+            const keySelector = document.querySelector('.key-selector');
+            const playBtn = document.querySelector('[data-exercise="scales"] .play-btn');
+            const stopBtn = document.querySelector('[data-exercise="scales"] .stop-btn');
+            const resetBtn = document.querySelector('[data-exercise="scales"] .reset-btn');
+
+            if (playBtn && stopBtn && resetBtn && keySelector) {
+                playBtn.addEventListener('click', () => {
+                    playScale(keySelector.value);
+                });
+
+                stopBtn.addEventListener('click', () => {
+                    stopScale();
+                });
+
+                resetBtn.addEventListener('click', () => {
+                    resetScale();
+                });
+
+                // Change scale when selector changes
+                keySelector.addEventListener('change', (e) => {
+                    // Only auto-play if a scale was already playing
+                    if (scaleAudio && !scaleAudio.paused) {
+                        playScale(e.target.value);
+                    }
+                });
+            }
 
         } catch (err) {
             console.error("Failed to load interactive tools:", err);
